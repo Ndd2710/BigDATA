@@ -1,0 +1,126 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Hoạt động",
+          "nodeLineageTag": "51d90fc9-3f7d-4729-bc69-b6c69f94f5a7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 0
+          },
+          "nodeIndex": "Thời gian chơi",
+          "nodeLineageTag": "3399b4f2-a602-42d8-9cb4-9fded9eef535",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 0
+          },
+          "nodeIndex": "Xu hướng",
+          "nodeLineageTag": "4bf66ef9-9e6d-4d4a-a621-6de633d55abe",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 0
+          },
+          "nodeIndex": "Data Quality",
+          "nodeLineageTag": "6c35a28d-fa0c-4d76-b00b-80585b773226",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 86
+          },
+          "nodeIndex": "Game",
+          "nodeLineageTag": "0559a03d-39e9-4f57-8755-0f4e3f9c0cb6",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 38
+          },
+          "nodeIndex": "Biến động đánh giá",
+          "nodeLineageTag": "69839d65-4ccd-4570-9b2f-0e5372668d7e",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1704,
+            "y": 26
+          },
+          "nodeIndex": "Chủ đề từ khóa",
+          "nodeLineageTag": "0edcd665-deed-43ba-9da4-a57886a51f05",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1988,
+            "y": 26
+          },
+          "nodeIndex": "Hành vi chi tiết",
+          "nodeLineageTag": "cb9370d6-42dc-4c58-8f47-53a2a3488ed1",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,8 @@
+.env
+tai\ lieu/
+__pycache__/
+*.py[cod]
+data/raw/*
+!data/raw/.gitkeep
+SteamReviews/
+dashboard/**/.pbi/

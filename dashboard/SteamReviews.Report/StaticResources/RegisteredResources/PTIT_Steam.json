@@ -1,0 +1,35 @@
+{
+  "name": "PTIT Steam Reviews",
+  "dataColors": [
+    "#BC2026",
+    "#315C80",
+    "#777777",
+    "#D9A4A6",
+    "#46695B",
+    "#A58A55"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#292929",
+  "tableAccent": "#BC2026",
+  "good": "#46695B",
+  "neutral": "#A58A55",
+  "bad": "#BC2026",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Georgia",
+      "color": "#BC2026"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#292929"
+    },
+    "header": {
+      "fontFace": "Segoe UI",
+      "color": "#292929"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "color": "#666666"
+    }
+  }
+}

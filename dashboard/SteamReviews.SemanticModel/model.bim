@@ -1,0 +1,2297 @@
+{
+  "compatibilityLevel": 1606,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Xu hướng\",\"Thời gian chơi\",\"Hoạt động\",\"Game\",\"Data Quality\",\"Hành vi chi tiết\",\"Chủ đề từ khóa\",\"Biến động đánh giá\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "vi-VN",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "discourageImplicitMeasures": true,
+    "relationships": [
+      {
+        "name": "965f907e-ff13-41ed-a10a-390d0b08c9ab",
+        "fromColumn": "Tháng",
+        "fromTable": "Xu hướng",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_1a68ae07-c1c7-49c8-bbb5-4fd17888765b"
+      },
+      {
+        "name": "d2da9148-4890-4f8e-8c54-55107b3c4c2e",
+        "fromColumn": "review_month",
+        "fromTable": "Thời gian chơi",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_2250898c-d125-48b1-877e-1281c1fec77d"
+      },
+      {
+        "name": "0a352c22-53d7-4452-ba58-279c5b68794d",
+        "fromColumn": "review_month",
+        "fromTable": "Hoạt động",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_0475893f-0218-4ac5-9201-bbd40ef7b8f9"
+      },
+      {
+        "name": "908b4599-3163-4503-8fc0-65472cff15b0",
+        "fromColumn": "Mã game",
+        "fromTable": "Xu hướng",
+        "toColumn": "app_id",
+        "toTable": "Game"
+      },
+      {
+        "name": "0f6a9e18-b686-4465-a7b1-147530692fd6",
+        "fromColumn": "Mã game",
+        "fromTable": "Thời gian chơi",
+        "toColumn": "app_id",
+        "toTable": "Game"
+      },
+      {
+        "name": "92adeb66-fa91-4412-a2e6-4862b11b2946",
+        "fromColumn": "Mã game",
+        "fromTable": "Hoạt động",
+        "toColumn": "app_id",
+        "toTable": "Game"
+      },
+      {
+        "name": "58bcf941-773e-40c3-bce5-4feb291ccce1",
+        "fromColumn": "app_id",
+        "fromTable": "Hành vi chi tiết",
+        "toColumn": "app_id",
+        "toTable": "Game"
+      },
+      {
+        "name": "0f8f847f-cd91-46a5-a4c9-3dc820436f33",
+        "fromColumn": "app_id",
+        "fromTable": "Chủ đề từ khóa",
+        "toColumn": "app_id",
+        "toTable": "Game"
+      },
+      {
+        "name": "4e2d5923-c3e8-43f7-9643-3cf258afbbcf",
+        "fromColumn": "app_id",
+        "fromTable": "Biến động đánh giá",
+        "toColumn": "app_id",
+        "toTable": "Game"
+      },
+      {
+        "name": "45c3e94a-029d-4881-b752-dc4374291277",
+        "fromColumn": "review_month",
+        "fromTable": "Biến động đánh giá",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_c7725f2b-d29c-4f98-8fbf-036116857f9f"
+      }
+    ],
+    "sourceQueryCulture": "vi-VN",
+    "tables": [
+      {
+        "name": "Xu hướng",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Tháng",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM",
+            "lineageTag": "8c2c6e34-4088-4fec-af7f-1e55dbe73271",
+            "sourceColumn": "review_month",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Phân cấp ngày tháng",
+                  "table": "LocalDateTable_1a68ae07-c1c7-49c8-bbb5-4fd17888765b"
+                },
+                "isDefault": true,
+                "relationship": "965f907e-ff13-41ed-a10a-390d0b08c9ab"
+              }
+            ]
+          },
+          {
+            "name": "Mã game",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "lineageTag": "029d535f-4790-45ac-bb18-672e63266718",
+            "sourceColumn": "app_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "reviews",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "c73c4610-f82e-4c46-a5b0-f064e9197bb6",
+            "sourceColumn": "reviews",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "recommendations",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "3dc1fe50-77c3-4135-bb03-45bbef849fd2",
+            "sourceColumn": "recommendations",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "known_playtime",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "abc6c585-fbdf-417c-b99d-f7b05030d883",
+            "sourceColumn": "known_playtime",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "total_playtime_minutes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "isHidden": true,
+            "lineageTag": "d1fc525e-412b-4ec1-bb1c-cecbcbb6a38b",
+            "sourceColumn": "total_playtime_minutes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "recommendation_rate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "94fb86a3-7fed-49a7-8926-517937182aa5",
+            "sourceColumn": "recommendation_rate",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_playtime_hours",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "c4eccd30-d711-43a7-a4b4-14c9ba51c242",
+            "sourceColumn": "avg_playtime_hours",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "4bf66ef9-9e6d-4d4a-a621-6de633d55abe",
+        "measures": [
+          {
+            "name": "Tỷ lệ đề xuất · Xu hướng",
+            "expression": "DIVIDE(SUM('Xu hướng'[recommendations]), SUM('Xu hướng'[reviews]))",
+            "formatString": "0.0%",
+            "lineageTag": "b42e80dd-f258-43dd-8ab0-b2c51a0508b5"
+          },
+          {
+            "name": "Số review · Xu hướng",
+            "expression": "SUM('Xu hướng'[reviews])",
+            "formatString": "#,##0",
+            "lineageTag": "1fd98365-97df-485e-bc38-d01ed878f4a9"
+          },
+          {
+            "name": "Giờ chơi TB · Xu hướng",
+            "expression": "DIVIDE(SUM('Xu hướng'[total_playtime_minutes]), 60 * SUM('Xu hướng'[known_playtime]))",
+            "formatString": "0.0",
+            "lineageTag": "cc6e00c4-dfc7-4bce-b416-828e065837c2"
+          },
+          {
+            "name": "Số đề xuất · Xu hướng",
+            "expression": "SUM('Xu hướng'[recommendations])",
+            "formatString": "#,0",
+            "lineageTag": "90fccb46-01ec-4b31-ad9d-fdbe5db64c4e"
+          },
+          {
+            "name": "Số không đề xuất · Xu hướng",
+            "expression": "SUM('Xu hướng'[reviews]) - SUM('Xu hướng'[recommendations])",
+            "formatString": "#,0",
+            "lineageTag": "3d5ae5a4-459c-40b5-a09d-ed8bdf535054"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "recommendation_trend",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5433\", \"steam_reviews\"),",
+                "    Data = Source{[Schema=\"analytics\", Item=\"recommendation_trend\"]}[Data]",
+                "in",
+                "    Data"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Thời gian chơi",
+        "columns": [
+          {
+            "name": "Nhóm thời gian",
+            "dataType": "string",
+            "lineageTag": "512fb03a-d3b1-468a-a1a1-f92020796983",
+            "sortByColumn": "Thứ tự nhóm",
+            "sourceColumn": "playtime_band",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Mã game",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "lineageTag": "78934cd8-81d1-4976-801d-9a170ea18d54",
+            "sourceColumn": "app_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "reviews",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "3770f4cc-d3ba-4479-bdc6-8a8518a24366",
+            "sourceColumn": "reviews",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "recommendations",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "21337de9-91fa-489b-a3d7-7635545f4be4",
+            "sourceColumn": "recommendations",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "known_playtime",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "11b12e0d-ea68-4c36-9d92-9d88984cc960",
+            "sourceColumn": "known_playtime",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "total_playtime_minutes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "isHidden": true,
+            "lineageTag": "b296bde8-1e3a-4297-90de-e39134b5f8d4",
+            "sourceColumn": "total_playtime_minutes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "review_month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "83bd50f4-2e4b-4a5d-b1c6-48b4eb5dc89d",
+            "sourceColumn": "review_month",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Phân cấp ngày tháng",
+                  "table": "LocalDateTable_2250898c-d125-48b1-877e-1281c1fec77d"
+                },
+                "isDefault": true,
+                "relationship": "d2da9148-4890-4f8e-8c54-55107b3c4c2e"
+              }
+            ]
+          },
+          {
+            "name": "recommendation_rate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "978acf74-7d93-4a13-9da2-47eb0aaefb5e",
+            "sourceColumn": "recommendation_rate",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_playtime_hours",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "846bfa04-64aa-4210-83f7-d07633c84c12",
+            "sourceColumn": "avg_playtime_hours",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Thứ tự nhóm",
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "252ad6b7-d8f5-4374-8308-bb939f751b57",
+            "sourceColumn": "band_sort",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "3399b4f2-a602-42d8-9cb4-9fded9eef535",
+        "measures": [
+          {
+            "name": "Tỷ lệ đề xuất · Thời gian chơi",
+            "expression": "DIVIDE(SUM('Thời gian chơi'[recommendations]), SUM('Thời gian chơi'[reviews]))",
+            "formatString": "0.0%",
+            "lineageTag": "9400c3fc-5bea-4176-af7e-91c81d3a292d"
+          },
+          {
+            "name": "Số review · Thời gian chơi",
+            "expression": "SUM('Thời gian chơi'[reviews])",
+            "formatString": "#,##0",
+            "lineageTag": "fbbee492-0289-476d-925b-c1c2debc060c"
+          },
+          {
+            "name": "Giờ chơi TB · Thời gian chơi",
+            "expression": "DIVIDE(SUM('Thời gian chơi'[total_playtime_minutes]), 60 * SUM('Thời gian chơi'[known_playtime]))",
+            "formatString": "0.0",
+            "lineageTag": "4f0e49fb-07e0-422d-864c-664015e7031d"
+          },
+          {
+            "name": "Số đề xuất · Thời gian chơi",
+            "expression": "SUM('Thời gian chơi'[recommendations])",
+            "formatString": "#,0",
+            "lineageTag": "1e9b0812-72da-4028-ac6d-89bae6992219"
+          },
+          {
+            "name": "Số không đề xuất · Thời gian chơi",
+            "expression": "SUM('Thời gian chơi'[reviews]) - SUM('Thời gian chơi'[recommendations])",
+            "formatString": "#,0",
+            "lineageTag": "fa1bb413-e3dd-4890-aa37-d75ffd282656"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "playtime_behavior",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5433\", \"steam_reviews\"),",
+                "    Data = Source{[Schema=\"analytics\", Item=\"playtime_behavior\"]}[Data],",
+                "    WithSort = Table.AddColumn(Data, \"band_sort\", each if [playtime_band] = \"under_1h\" then 1 else if [playtime_band] = \"1_to_10h\" then 2 else if [playtime_band] = \"10_to_50h\" then 3 else if [playtime_band] = \"50h_plus\" then 4 else if [playtime_band] = \"unknown\" then 5 else 99, Int64.Type),",
+                "    Labels = Table.TransformColumns(WithSort, {{\"playtime_band\", each if _ = \"under_1h\" then \"Dưới 1 giờ\" else if _ = \"1_to_10h\" then \"1 đến dưới 10 giờ\" else if _ = \"10_to_50h\" then \"10 đến dưới 50 giờ\" else if _ = \"50h_plus\" then \"Từ 50 giờ\" else if _ = \"unknown\" then \"Không rõ\" else _, type text}})",
+                "in",
+                "    Labels"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Hoạt động",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Nhóm hoạt động",
+            "dataType": "string",
+            "lineageTag": "87e52660-ca3b-4412-aa9a-1c32dd062c4d",
+            "sortByColumn": "Thứ tự nhóm",
+            "sourceColumn": "activity_band",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Mã game",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "lineageTag": "ebc5ee37-5f10-4693-9409-b6e3ff8799d2",
+            "sourceColumn": "app_id",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "reviews",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "6e049bfd-2877-4fbd-8885-31e702278ea2",
+            "sourceColumn": "reviews",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "recommendations",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "443e257f-19ed-4b1f-87f5-3dfd3e94aa4f",
+            "sourceColumn": "recommendations",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "known_playtime",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "8b96f89d-073f-4029-9497-9d70ec509fcc",
+            "sourceColumn": "known_playtime",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "total_playtime_minutes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "isHidden": true,
+            "lineageTag": "0753bc11-6f27-4713-9d3f-c3859d4d2805",
+            "sourceColumn": "total_playtime_minutes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "review_month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "7b0e97c1-bad7-4145-9fb5-becd26d291e5",
+            "sourceColumn": "review_month",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Phân cấp ngày tháng",
+                  "table": "LocalDateTable_0475893f-0218-4ac5-9201-bbd40ef7b8f9"
+                },
+                "isDefault": true,
+                "relationship": "0a352c22-53d7-4452-ba58-279c5b68794d"
+              }
+            ]
+          },
+          {
+            "name": "recommendation_rate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "10472c3c-4eec-447c-8656-8bd92b906f78",
+            "sourceColumn": "recommendation_rate",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "avg_playtime_hours",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "750047a8-27c5-4ea0-9b30-321a483a42e1",
+            "sourceColumn": "avg_playtime_hours",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Thứ tự nhóm",
+            "dataType": "int64",
+            "isHidden": true,
+            "lineageTag": "95b712ee-05f6-45c0-9e26-82b6980454ec",
+            "sourceColumn": "band_sort",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "51d90fc9-3f7d-4729-bc69-b6c69f94f5a7",
+        "measures": [
+          {
+            "name": "Tỷ lệ đề xuất · Hoạt động",
+            "expression": "DIVIDE(SUM('Hoạt động'[recommendations]), SUM('Hoạt động'[reviews]))",
+            "formatString": "0.0%",
+            "lineageTag": "922bc38c-fd98-46bd-bb38-2be5798bf575"
+          },
+          {
+            "name": "Số review · Hoạt động",
+            "expression": "SUM('Hoạt động'[reviews])",
+            "formatString": "#,##0",
+            "lineageTag": "b8db7905-12c8-4c72-8ace-086e3ec8adad"
+          },
+          {
+            "name": "Giờ chơi TB · Hoạt động",
+            "expression": "DIVIDE(SUM('Hoạt động'[total_playtime_minutes]), 60 * SUM('Hoạt động'[known_playtime]))",
+            "formatString": "0.0",
+            "lineageTag": "5c232163-1c8a-4475-927f-189f52c3fa58"
+          },
+          {
+            "name": "Số đề xuất · Hoạt động",
+            "expression": "SUM('Hoạt động'[recommendations])",
+            "formatString": "#,0",
+            "lineageTag": "16d60397-5e7c-49a2-b8e7-e083db685e8a"
+          },
+          {
+            "name": "Số không đề xuất · Hoạt động",
+            "expression": "SUM('Hoạt động'[reviews]) - SUM('Hoạt động'[recommendations])",
+            "formatString": "#,0",
+            "lineageTag": "089ed471-c3a3-41be-9344-3805c91c6c41"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "reviewer_activity",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5433\", \"steam_reviews\"),",
+                "    Data = Source{[Schema=\"analytics\", Item=\"reviewer_activity\"]}[Data],",
+                "    WithSort = Table.AddColumn(Data, \"band_sort\", each if [activity_band] = \"under_5\" then 1 else if [activity_band] = \"5_to_19\" then 2 else if [activity_band] = \"20_plus\" then 3 else if [activity_band] = \"unknown\" then 4 else 99, Int64.Type),",
+                "    Labels = Table.TransformColumns(WithSort, {{\"activity_band\", each if _ = \"under_5\" then \"Dưới 5 review\" else if _ = \"5_to_19\" then \"5–19 review\" else if _ = \"20_plus\" then \"Từ 20 review\" else if _ = \"unknown\" then \"Không rõ\" else _, type text}})",
+                "in",
+                "    Labels"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DateTableTemplate_098500af-c235-44e1-803d-505c2b552636",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "f244f27b-20ea-4520-8f94-9f9b831ad798",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Năm",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "7dd425f8-433d-4b85-b702-68076f9b1e72",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "d014253f-bff1-4d8e-a9d1-98dc77e4eb80",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Tháng",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "e031e6a0-7a07-4d5b-bda2-9f7ca198a2d5",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "fec72c2c-a1b9-4dc1-8de2-5068feaddcca",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quý",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Quý \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "064ed3b2-2fa4-43ea-95b3-bd7bace63bbd",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Ngày",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "089cd9db-57f4-406f-966d-06bbd4fea25f",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Phân cấp ngày tháng",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Năm",
+                "column": "Năm",
+                "lineageTag": "fa3fbeae-d625-4395-8f2c-f7aa53829775",
+                "ordinal": 0
+              },
+              {
+                "name": "Quý",
+                "column": "Quý",
+                "lineageTag": "b6f47813-77bd-425b-96a1-403e05ae584a",
+                "ordinal": 1
+              },
+              {
+                "name": "Tháng",
+                "column": "Tháng",
+                "lineageTag": "f6ec1da0-a078-4874-9275-760776113d1d",
+                "ordinal": 2
+              },
+              {
+                "name": "Ngày",
+                "column": "Ngày",
+                "lineageTag": "27f116d4-70a9-46b0-abd9-a2f852acc283",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "ad24fb9a-5fcb-4db3-ac08-28d728baf624"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "6a458d10-8d72-4ef3-8274-84abee23f190",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_098500af-c235-44e1-803d-505c2b552636",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_1a68ae07-c1c7-49c8-bbb5-4fd17888765b",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "25f951c6-d05a-4c2b-9c84-cb72a36d6c35",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Năm",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "c40f0799-92d4-4cad-adb5-5515c22fcd9c",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "f9394eb1-2797-4fee-9798-13a2bc795e5a",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Tháng",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "4554014b-fdae-4c29-b5a3-9d7cf6fe8bca",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "fdeb85ee-20d1-4621-ac2f-a3d510311a18",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quý",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Quý \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "e0879d96-a4c7-4255-95aa-96ace706f14c",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Ngày",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "13f62690-cb73-44ff-a4fb-0128a80790b8",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Phân cấp ngày tháng",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Năm",
+                "column": "Năm",
+                "lineageTag": "63c2990f-f3af-4e87-9b9d-81c4ac9617aa",
+                "ordinal": 0
+              },
+              {
+                "name": "Quý",
+                "column": "Quý",
+                "lineageTag": "5adfab11-7952-4ade-8c21-28618291d893",
+                "ordinal": 1
+              },
+              {
+                "name": "Tháng",
+                "column": "Tháng",
+                "lineageTag": "736d8829-f11b-4ff4-9aff-b69125f316e3",
+                "ordinal": 2
+              },
+              {
+                "name": "Ngày",
+                "column": "Ngày",
+                "lineageTag": "b3367253-311e-433c-b7e7-cfd391b0692e",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "f787376b-68cf-40b8-8a8d-69c84ac28bcd"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "c95bb388-bdb4-420d-9d3c-c4dd1a5b3c72",
+        "partitions": [
+          {
+            "name": "LocalDateTable_1a68ae07-c1c7-49c8-bbb5-4fd17888765b",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('Xu hướng'[Tháng])), 1, 1), Date(Year(MAX('Xu hướng'[Tháng])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "LocalDateTable_2250898c-d125-48b1-877e-1281c1fec77d",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "19bae8dd-db9b-4548-be13-1f0430e13dc1",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Năm",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "60c3ee1b-f91d-4e76-8e00-2d50265f8317",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "585be1e5-42da-4b1d-ad46-b4e42ecc3c52",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Tháng",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "9e7c5759-f869-448e-88cf-294d49fb8f17",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "6d944187-40f6-42c7-9c2f-02f5df0f3a65",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quý",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Quý \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "26977a70-82d1-4d70-a17d-9c4df954c0fa",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Ngày",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "a295965e-c325-46cc-97e7-0c1db6d58622",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Phân cấp ngày tháng",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Năm",
+                "column": "Năm",
+                "lineageTag": "7339b8cb-fbc5-4426-a80f-f0fccbca6d47",
+                "ordinal": 0
+              },
+              {
+                "name": "Quý",
+                "column": "Quý",
+                "lineageTag": "ba43a702-dcdc-4b15-8310-2ae9d7756717",
+                "ordinal": 1
+              },
+              {
+                "name": "Tháng",
+                "column": "Tháng",
+                "lineageTag": "7452b4fa-17c0-4de1-b7e6-fbcbc1c9a95b",
+                "ordinal": 2
+              },
+              {
+                "name": "Ngày",
+                "column": "Ngày",
+                "lineageTag": "c001749f-7f09-4140-aac7-0b87ded0f536",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "df7727db-ded1-43ec-9d1d-800e5dda6f47"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "e9d67564-e39d-4fd2-afd3-6d541bb898c9",
+        "partitions": [
+          {
+            "name": "LocalDateTable_2250898c-d125-48b1-877e-1281c1fec77d",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('Thời gian chơi'[review_month])), 1, 1), Date(Year(MAX('Thời gian chơi'[review_month])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "LocalDateTable_0475893f-0218-4ac5-9201-bbd40ef7b8f9",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "0ec29ddb-9fbe-4b9f-b4ec-dfbf42fcce45",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Năm",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "1c7e3c8e-c7a2-4977-b08f-10574efacc56",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "3c792d5a-e028-4821-a514-d01d479ceddd",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Tháng",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "700426f9-ed78-4426-8167-b3b30ea346bc",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "79dc0659-763a-4df1-a316-ff4a4562ae0a",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quý",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Quý \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "b48415a2-691d-48a6-a1ee-47470ac1fb3a",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Ngày",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "332c0f9a-6ec8-42be-ac48-fd1871f017c1",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Phân cấp ngày tháng",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Năm",
+                "column": "Năm",
+                "lineageTag": "fd474a2a-a3a7-45d0-b3c1-89a476fe5a33",
+                "ordinal": 0
+              },
+              {
+                "name": "Quý",
+                "column": "Quý",
+                "lineageTag": "4c9396fa-c7a6-4cd0-952f-b3963404672f",
+                "ordinal": 1
+              },
+              {
+                "name": "Tháng",
+                "column": "Tháng",
+                "lineageTag": "7948a1b1-325c-4534-9d47-e148bc98ca71",
+                "ordinal": 2
+              },
+              {
+                "name": "Ngày",
+                "column": "Ngày",
+                "lineageTag": "a7214988-b088-4b74-965e-33b07285c844",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "be64b029-527f-4c71-bed9-ce5205af9fd3"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "5df7eec5-3000-4bd2-a142-52fc24455191",
+        "partitions": [
+          {
+            "name": "LocalDateTable_0475893f-0218-4ac5-9201-bbd40ef7b8f9",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('Hoạt động'[review_month])), 1, 1), Date(Year(MAX('Hoạt động'[review_month])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "Game",
+        "columns": [
+          {
+            "name": "app_id",
+            "dataType": "int64",
+            "lineageTag": "9250e8cd-cb80-450e-8cd7-ad541663859c",
+            "sourceColumn": "app_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Game label",
+            "dataType": "string",
+            "lineageTag": "311b0e5f-29df-4461-86df-df113e86cc2c",
+            "sourceColumn": "Game label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "game_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "53b637c6-6df2-4b3c-aa66-c13cbbcb1f39",
+            "sourceColumn": "game_name",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "0559a03d-39e9-4f57-8755-0f4e3f9c0cb6",
+        "partitions": [
+          {
+            "name": "Game",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5433\", \"steam_reviews\"),",
+                "    Data = Source{[Schema=\"analytics\", Item=\"recommendation_trend\"]}[Data],",
+                "    Games = Table.Distinct(Table.SelectColumns(Data, {\"app_id\"})),",
+                "    Names = #table(type table [app_id=Int64.Type, game_name=text], {{10, \"Counter-Strike\"}, {20, \"Team Fortress Classic\"}, {30, \"Day of Defeat\"}, {40, \"Deathmatch Classic\"}, {50, \"Half-Life: Opposing Force\"}, {60, \"Ricochet\"}, {70, \"Half-Life\"}, {80, \"Counter-Strike: Condition Zero\"}, {130, \"Half-Life: Blue Shift\"}, {220, \"Half-Life 2\"}, {240, \"Counter-Strike: Source\"}, {300, \"Day of Defeat: Source\"}, {400, \"Portal\"}, {440, \"Team Fortress 2\"}, {500, \"Left 4 Dead\"}, {550, \"Left 4 Dead 2\"}, {570, \"Dota 2\"}, {620, \"Portal 2\"}, {630, \"Alien Swarm\"}, {730, \"Counter-Strike: Global Offensive\"}, {1250, \"Killing Floor\"}, {1600, \"Dangerous Waters\"}, {1640, \"Disciples II: Gallean's Return\"}, {1690, \"Space Empires V\"}, {1840, \"Source Filmmaker\"}, {2280, \"DOOM + DOOM II\"}, {2310, \"Quake\"}, {2360, \"Hexen: Beyond Heretic\"}, {2390, \"Heretic: Shadow of the Serpent Riders\"}, {2600, \"Vampire: The Masquerade - Bloodlines\"}, {2990, \"FlatOut 2\"}, {3260, \"Safecracker: The Ultimate Puzzle Adventure\"}, {3270, \"Painkiller Overdose\"}, {3480, \"Peggle Deluxe\"}, {3540, \"Peggle Nights\"}, {3590, \"Plants vs. Zombies GOTY Edition\"}, {3600, \"Escape Rosecliff Island\"}, {3620, \"Zuma's Revenge!\"}, {3710, \"Judge Dredd: Dredd vs. Death\"}, {3830, \"Psychonauts\"}, {3980, \"CivCity: Rome\"}, {4000, \"Garry's Mod\"}, {4500, \"S.T.A.L.K.E.R.: Shadow of Chernobyl\"}, {4520, \"Full Spectrum Warrior\"}, {4700, \"Total War: MEDIEVAL II – Definitive Edition\"}, {4720, \"Condemned: Criminal Origins\"}, {4870, \"Cossacks: Art of War\"}, {4880, \"Cossacks: European Wars\"}, {6000, \"STAR WARS Republic Commando\"}, {6020, \"STAR WARS Jedi Knight - Jedi Academy\"}, {6060, \"STAR WARS Battlefront II (Classic, 2005)\"}, {6120, \"Shank\"}, {6420, \"Nexus - The Jupiter Incident\"}, {6860, \"Hitman: Blood Money\"}, {6910, \"Deus Ex: Game of the Year Edition\"}, {7200, \"Trackmania United Forever\"}, {7220, \"Runaway, The Dream of The Turtle\"}, {7620, \"Railroad Tycoon II Platinum\"}, {7730, \"X-COM: Interceptor\"}, {7860, \"NecroVision\"}, {7940, \"Call of Duty 4: Modern Warfare (2007)\"}, {8100, \"Conflict: Denied Ops\"}, {8190, \"Just Cause 2\"}, {8340, \"Strong Bad's Cool Game for Attractive People: Season 1\"}, {8500, \"EVE Online\"}, {8870, \"BioShock Infinite\"}, {8880, \"Freedom Force\"}, {8890, \"Freedom Force vs. the Third Reich\"}, {8930, \"Sid Meier's Civilization V\"}, {9460, \"Frontlines: Fuel of War\"}, {9940, \"Blade Kitten\"}, {10090, \"Call of Duty: World at War\"}, {10100, \"King's Quest Collection\"}, {10110, \"Space Quest Collection\"}, {10150, \"Prototype\"}, {10180, \"Call of Duty: Modern Warfare 2 (2009)\"}, {10500, \"Total War: EMPIRE – Definitive Edition\"}, {10680, \"Aliens vs. Predator\"}, {11140, \"Sherlock Holmes: The Awakened (2008)\"}, {11200, \"Shadowgrounds Survivor\"}, {11240, \"Space Trader: Merchant Marine\"}, {11280, \"Penguins Arena: Sedna's World\"}, {11480, \"Soldiers: Heroes of World War II - Enhanced Edition\"}, {12140, \"Max Payne\"}, {12150, \"Max Payne 2: The Fall of Max Payne\"}, {12200, \"Bully: Scholarship Edition\"}, {13500, \"Prince of Persia: Warrior Within\"}, {13540, \"Tom Clancy's Rainbow Six Vegas\"}, {15100, \"Assassin's Creed: Director's Cut Edition\"}, {15270, \"Cold Fear\"}, {15300, \"Tom Clancy's Ghost Recon\"}, {15520, \"AaAaAA!!! - A Reckless Disregard for Gravity\"}, {15750, \"Oddworld: Stranger's Wrath HD\"}, {16710, \"Insecticide Part 1\"}, {16720, \"Velvet Assassin\"}, {16900, \"GROUND BRANCH\"}, {17300, \"Crysis\"}, {17390, \"SPORE\"}, {17410, \"Mirror's Edge\"}, {17460, \"Mass Effect (2007)\"}, {17470, \"Dead Space (2008)\"}, {18020, \"Precipice of Darkness, Episode Two\"}, {18300, \"Spectraball\"}, {18400, \"Crazy Machines 2\"}, {19900, \"Far Cry 2\"}, {20510, \"S.T.A.L.K.E.R.: Clear Sky\"}, {20550, \"Red Faction II\"}, {20820, \"Shatter\"}, {20900, \"The Witcher: Enhanced Edition Director's Cut\"}, {20920, \"The Witcher 2: Assassins of Kings Enhanced Edition\"}, {21000, \"LEGO Batman: The Videogame\"}, {21090, \"F.E.A.R.\"}, {21660, \"Street Fighter IV\"}, {21670, \"Bionic Commando\"}, {21690, \"Resident Evil 5\"}, {21780, \"Driver Parallel Lines\"}, {21800, \"Tom Clancy's EndWar\"}, {22120, \"Penumbra: Black Plague Gold Edition\"}, {22180, \"Penumbra Overture\"}, {22230, \"Rock of Ages\"}, {22300, \"Fallout 3\"}, {22310, \"Rogue Warrior\"}, {22320, \"The Elder Scrolls III: Morrowind Game of the Year Edition\"}, {22330, \"The Elder Scrolls IV: Oblivion Game of the Year Edition (2009)\"}, {22370, \"Fallout 3: Game of the Year Edition\"}, {22380, \"Fallout: New Vegas\"}, {22450, \"Hunted: The Demon’s Forge\"}, {22500, \"Spectromancer\"}, {22670, \"Alien Breed 3: Descent\"}, {23300, \"Yosumin!\"}, {23380, \"Gyromancer\"}, {23450, \"Grand Ages: Rome\"}, {23530, \"Earth Defense Force: Insect Armageddon\"}, {24010, \"Train Simulator Classic\"}, {24200, \"DC Universe Online\"}, {24240, \"PAYDAY The Heist\"}, {24400, \"King Arthur - The Role-playing Wargame\"}, {24480, \"King Arthur II: The Role-Playing Wargame\"}, {25600, \"Eschalon: Book I\"}, {25980, \"Majesty 2\"}, {27000, \"The Path\"}, {27920, \"Booster Trooper\"}, {32330, \"LEGO Indiana Jones: The Original Adventures\"}, {32350, \"STAR WARS Starfighter\"}, {32370, \"STAR WARS Knights of the Old Republic\"}, {32420, \"STAR WARS: The Clone Wars - Republic Heroes\"}, {32440, \"LEGO Star Wars - The Complete Saga\"}, {32470, \"STAR WARS Empire at War - Gold Pack\"}, {32670, \"Delta Force: Black Hawk Down\"}, {33130, \"Zombie Shooter\"}, {33180, \"Zombie Shooter 2\"}, {33230, \"Assassin's Creed 2\"}, {33520, \"Tropico Reloaded\"}, {33570, \"Patrician III\"}, {33770, \"Drakensang: The River of Time\"}, {33930, \"Arma 2: Operation Arrowhead\"}, {34030, \"Total War: NAPOLEON – Definitive Edition\"}, {34190, \"Sonic & SEGA All-Stars Racing\"}, {34410, \"Death to Spies: Moment of Truth\"}, {34420, \"XIII Century – Gold Edition\"}, {34870, \"Sniper: Ghost Warrior 2\"}, {35140, \"Batman: Arkham Asylum Game of the Year Edition\"}, {35450, \"Red Orchestra 2: Heroes of Stalingrad with Rising Storm\"}, {35480, \"Dwarfs!?\"}, {35700, \"Trine Enchanted Edition\"}, {35720, \"Trine 2: Complete Story\"}, {36000, \"Foreign Legion: Buckets of Blood\"}, {37000, \"The Void\"}, {37030, \"UFO: Extraterrestrials Gold\"}, {38400, \"Fallout: A Post Nuclear Role Playing Game\"}, {38410, \"Fallout 2: A Post Nuclear Role Playing Game\"}, {38460, \"MDK 2\"}, {39000, \"Moonbase Alpha\"}, {39210, \"FINAL FANTASY XIV Online\"}, {39510, \"Gothic II: Gold Edition\"}, {39520, \"The Guild Gold Edition\"}, {39640, \"AquaNox 2: Revelation\"}, {39660, \"The Guild II - Pirates of the European Seas\"}, {40330, \"Secret Files: Tunguska\"}, {40350, \"Lost Horizon\"}, {40420, \"Tidalis\"}, {40700, \"Machinarium\"}, {40930, \"The Misadventures of P.B. Winterbottom\"}, {40970, \"Stronghold Crusader HD (2012)\"}, {41070, \"Serious Sam 3: BFE\"}, {41700, \"S.T.A.L.K.E.R.: Call of Pripyat\"}, {41900, \"The Bard's Tale ARPG: Remastered and Resnarkled\"}, {42700, \"Call of Duty: Black Ops\"}, {42850, \"Arsenal of Democracy: A Hearts of Iron Game\"}, {42890, \"Sword of the Stars: Complete Collection\"}, {42910, \"Magicka\"}, {42960, \"Victoria II\"}, {43000, \"Front Mission Evolved\"}, {45100, \"Secret of the Magic Crystals\"}, {45760, \"Ultra Street Fighter IV\"}, {46290, \"Theatre of War\"}, {46400, \"Greed: Black Border\"}, {46410, \"Avencast: Rise of the Mage\"}, {46450, \"Grotesque Tactics: Evil Heroes\"}, {46520, \"Wasteland Angel\"}, {46540, \"Trapped Dead\"}, {46570, \"Grotesque Tactics 2 – Dungeons and Donuts\"}, {47780, \"Dead Space 2\"}, {47800, \"RISK: Factions\"}, {47810, \"Dragon Age: Origins - Ultimate Edition\"}, {47890, \"The Sims 3\"}, {47920, \"Shift 2 Unleashed\"}, {48000, \"LIMBO\"}, {48190, \"Assassin’s Creed Brotherhood\"}, {48700, \"Mount & Blade: Warband\"}, {48800, \"Ship Simulator Extremes\"}, {48950, \"Greed Corp\"}, {49520, \"Borderlands 2\"}, {50130, \"Mafia II (Classic)\"}, {55000, \"Flotilla\"}, {55140, \"MX vs. ATV Reflex\"}, {55150, \"Warhammer 40,000: Space Marine - Anniversary Edition\"}, {55230, \"Saints Row: The Third\"}, {57300, \"Amnesia: The Dark Descent\"}, {57640, \"Broken Sword: Director's Cut (2009)\"}, {57740, \"Jagged Alliance - Back in Action\"}, {58200, \"Jolly Rover\"}, {58550, \"A Game of Thrones - Genesis\"}, {58560, \"Runaway: A Twist of Fate\"}, {61100, \"Lucid\"}, {61310, \"Fractal: Make Blooms Not War\"}, {61500, \"Age of Wonders\"}, {61510, \"Age of Wonders II: The Wizard's Throne\"}, {61520, \"Age of Wonders Shadow Magic\"}, {62100, \"Chime\"}, {63200, \"Monday Night Combat\"}, {63610, \"Riven (1997)\"}, {63660, \"Myst: Masterpiece Edition\"}, {63710, \"BIT.TRIP RUNNER\"}, {63800, \"Delve Deeper\"}, {63900, \"Fantasy Wars\"}, {63910, \"King's Bounty: Crossworlds\"}, {65530, \"SpellForce 2: Faith in Destiny\"}, {65540, \"Gothic 1 Classic\"}, {65600, \"Gothic 3: Forsaken Gods Enhanced Edition\"}, {65610, \"ArcaniA: Fall of Setarrif\"}, {65740, \"Carrier Command: Gaea Mission\"}, {65800, \"Dungeon Defenders\"}, {67000, \"The Polynomial - Space of the music\"}, {72400, \"Clones\"}, {72850, \"The Elder Scrolls V: Skyrim\"}, {73170, \"Darkest Hour: A Hearts of Iron Game\"}, {73210, \"Sengoku\"}, {80200, \"Fate of the World\"}, {80330, \"The Blackwell Legacy\"}, {80360, \"Blackwell Deception\"}, {90200, \"Farming Simulator 2011\"}, {92100, \"DETOUR\"}, {92900, \"Agricultural Simulator 2011: Extended Edition\"}, {95700, \"The Cat and the Coup\"}, {95900, \"Air Conflicts: Secret Wars\"}, {96200, \"Steel Storm: Burning Retribution\"}, {97330, \"Magic: The Gathering - Duels of the Planeswalkers 2013\"}, {98100, \"Trauma\"}, {98500, \"Naval Warfare\"}, {98600, \"Demolition Inc.\"}, {99100, \"Dungeons and Dragons: Daggerdale\"}, {99700, \"NightSky\"}, {99900, \"Spiral Knights\"}, {102200, \"Runespell: Overture\"}, {104900, \"ORION: Prelude\"}, {105300, \"Critical Mass\"}, {105600, \"Terraria\"}, {107100, \"Bastion\"}, {107410, \"Arma 3\"}, {108500, \"Vessel\"}, {108600, \"Project Zomboid\"}, {108700, \"Death Rally\"}, {108710, \"Alan Wake\"}, {109600, \"Neverwinter\"}, {110800, \"L.A. Noire\"}, {111100, \"Snuggle Truck\"}, {111400, \"Bunch of Heroes\"}, {113200, \"The Binding of Isaac\"}, {113400, \"APB Reloaded\"}, {115100, \"Costume Quest\"}, {115200, \"Cossacks II: Napoleonic Wars\"}, {115210, \"American Conquest\"}, {116100, \"Super Toy Cars\"}, {200010, \"Quantum Conundrum\"}, {200210, \"Realm of the Mad God Exalt\"}, {200260, \"Batman: Arkham City - Game of the Year Edition\"}, {200370, \"A Game of Dwarves\"}, {200510, \"XCOM: Enemy Unknown\"}, {200550, \"Dungeons - The Dark Lord\"}, {200670, \"Disciples III - Resurrection\"}, {200710, \"Torchlight II\"}, {200960, \"Geneforge 1\"}, {201290, \"Sins of a Solar Empire: Trinity\"}, {201420, \"Toki Tori 2+\"}, {201790, \"Orcs Must Die! 2\"}, {201810, \"Wolfenstein: The New Order\"}, {201870, \"Assassin's Creed Revelations\"}, {202710, \"Demigod\"}, {202970, \"Call of Duty: Black Ops II\"}, {203140, \"Hitman: Absolution\"}, {203160, \"Tomb Raider Game of the Year\"}, {203350, \"King's Bounty: Warriors of the North\"}, {203560, \"Containment: The Zombie Puzzler\"}, {203650, \"Sonic the Hedgehog 4 - Episode II\"}, {203770, \"Crusader Kings II\"}, {204100, \"Max Payne 3\"}, {204120, \"LEGO Harry Potter: Years 5-7\"}, {204220, \"Snapshot\"}, {204300, \"Awesomenauts\"}, {204340, \"Serious Sam II\"}, {204360, \"Castle Crashers\"}, {204860, \"Men of War: Condemned Heroes\"}, {204940, \"Crusader Kings Complete\"}, {205020, \"Lumino City\"}, {205100, \"Dishonored\"}, {205190, \"Rocksmith\"}, {205550, \"Foreign Legion: Multi Massacre\"}, {205610, \"Port Royale 3\"}, {205690, \"1000 Amps\"}, {206190, \"Gunpoint\"}, {206420, \"Saints Row IV: Re-Elected\"}, {206440, \"To the Moon\"}, {206690, \"iBomber Defense Pacific\"}, {207020, \"Bang Bang Racing\"}, {207080, \"Indie Game: The Movie\"}, {207140, \"SpeedRunners\"}, {207250, \"Cubemen\"}, {207350, \"Ys Origin\"}, {207420, \"Wizorb\"}, {207430, \"Hack, Slash, Loot\"}, {207930, \"Sacred Citadel\"}, {208400, \"Avernum: Escape From the Pit\"}, {208580, \"STAR WARS Knights of the Old Republic II - The Sith Lords\"}, {208600, \"Lunar Flight\"}, {208650, \"Batman: Arkham Knight\"}, {208670, \"Blades of Time\"}, {209000, \"Batman: Arkham Origins\"}, {209190, \"Stealth Bastard Deluxe\"}, {209830, \"Lone Survivor: The Director's Cut\"}, {210970, \"The Witness\"}, {211010, \"Alien Shooter 2 Conscription\"}, {211440, \"Adventures of Shuggy\"}, {211500, \"RaceRoom Racing Experience\"}, {211580, \"Wanderlust: Rebirth\"}, {211780, \"Conflict Desert Storm\"}, {211820, \"Starbound\"}, {211900, \"Conquest of Elysium 3\"}, {212030, \"Kung Fu Strike - The Warrior's Rise\"}, {212070, \"Star Conflict\"}, {212500, \"The Lord of the Rings Online\"}, {212680, \"FTL: Faster Than Light\"}, {213030, \"Penny Arcade's On the Rain-Slick Precipice of Darkness 3\"}, {213610, \"Sonic Adventure 2\"}, {213670, \"South Park: The Stick of Truth\"}, {214150, \"Galactic Civilizations I: Ultimate Edition\"}, {214490, \"Alien: Isolation\"}, {214590, \"Fairy Bloom Freesia\"}, {214630, \"Call of Duty: Black Ops - Mac Edition\"}, {214910, \"Air Conflicts: Pacific Carriers\"}, {214950, \"Total War: ROME II - Emperor Edition\"}, {215160, \"The Book of Unwritten Tales\"}, {215630, \"Demonicon\"}, {217140, \"Rise of the Triad\"}, {217270, \"Karateka\"}, {218090, \"Unity of Command: Stalingrad Campaign\"}, {218230, \"PlanetSide 2\"}, {218620, \"PAYDAY 2\"}, {219150, \"Hotline Miami\"}, {219200, \"Droid Assault\"}, {219340, \"The Banner Saga: Factions\"}, {219640, \"Chivalry: Medieval Warfare\"}, {219680, \"Proteus\"}, {219890, \"Antichamber\"}, {219950, \"NiGHTS Into Dreams\"}, {219990, \"Grim Dawn\"}, {220090, \"The Journey Down: Chapter One\"}, {220160, \"Trials Evolution: Gold Edition\"}, {220200, \"Kerbal Space Program\"}, {220240, \"Far Cry 3\"}, {220440, \"DmC: Devil May Cry\"}, {220700, \"RPG Maker VX Ace\"}, {220900, \"Jack Lumber\"}, {221040, \"Resident Evil 6\"}, {221100, \"DayZ\"}, {221380, \"Age of Empires II (Retired)\"}, {221640, \"Super Hexagon\"}, {221680, \"Rocksmith 2014 Edition REMASTERED LEARN & PLAY\"}, {221810, \"The Cave\"}, {221830, \"The Book of Unwritten Tales: The Critter Chronicles\"}, {221910, \"The Stanley Parable\"}, {222140, \"Puddle\"}, {222440, \"THE KING OF FIGHTERS 2002 UNLIMITED MATCH\"}, {222880, \"Insurgency\"}, {223220, \"Giana Sisters: Twisted Dreams\"}, {223470, \"POSTAL 2\"}, {223510, \"Miasmata\"}, {223710, \"Cry of Fear\"}, {223730, \"Fly'N\"}, {223750, \"DCS World Steam Edition\"}, {223810, \"Ys I & II Chronicles+\"}, {224260, \"No More Room in Hell\"}, {224460, \"Contrast\"}, {224760, \"FEZ\"}, {224900, \"Iron Sky: Invasion\"}, {225020, \"Tomb Raider VI: The Angel of Darkness (2003)\"}, {225080, \"Brothers - A Tale of Two Sons\"}, {225260, \"Brutal Legend\"}, {225540, \"Just Cause 3\"}, {225640, \"Sacred 2 Gold\"}, {225840, \"Sven Co-op\"}, {226620, \"Desktop Dungeons\"}, {226960, \"Ironclad Tactics\"}, {227060, \"Hegemony Rome: The Rise of Caesar\"}, {227160, \"Kinetic Void\"}, {227200, \"Waking Mars\"}, {227300, \"Euro Truck Simulator 2\"}, {227380, \"Dragon's Lair\"}, {227580, \"10,000,000\"}, {227600, \"Castle of Illusion\"}, {227780, \"Serious Sam Classics: Revolution\"}, {228200, \"Company of Heroes\"}, {228280, \"Baldur's Gate: Enhanced Edition\"}, {228360, \"Full Throttle Remastered\"}, {228380, \"Wreckfest\"}, {229520, \"Dungeon Hearts\"}, {229810, \"A Fistful of Gun\"}, {229870, \"ShootMania Storm\"}, {230050, \"DLC Quest\"}, {230290, \"Universe Sandbox\"}, {230410, \"Warframe\"}, {230820, \"The Night of the Rabbit\"}, {230980, \"Starseed Pilgrim\"}, {231040, \"Beatbuddy: Tale of the Guardians\"}, {231330, \"Deadfall Adventures\"}, {231430, \"Company of Heroes 2\"}, {232090, \"Killing Floor 2\"}, {232430, \"Gone Home\"}, {232750, \"Mars: War Logs\"}, {232770, \"POSTAL\"}, {232790, \"Broken Age\"}, {232950, \"Bridge Project\"}, {233130, \"Shadow Warrior\"}, {233210, \"Air Conflicts: Vietnam\"}, {233270, \"Far Cry 3 - Blood Dragon\"}, {233290, \"Murdered: Soul Suspect\"}, {233310, \"Avadon 2: The Corruption\"}, {233450, \"Prison Architect\"}, {233550, \"Another World – 20th Anniversary Edition\"}, {233610, \"Distance\"}, {233720, \"Surgeon Simulator\"}, {233860, \"Kenshi\"}, {234140, \"Mad Max\"}, {234490, \"Rush Bros.\"}, {235250, \"Super Sanctum TD\"}, {235320, \"Original War\"}, {235360, \"Prime World: Defenders\"}, {235380, \"Blitzkrieg 3\"}, {235460, \"METAL GEAR RISING: REVENGEANCE\"}, {235520, \"The White Laboratory\"}, {235540, \"Warhammer: End Times - Vermintide\"}, {235600, \"Tom Clancy’s Splinter Cell Blacklist\"}, {235620, \"Small World\"}, {235660, \"Eador: Genesis\"}, {235720, \"Cubetractor\"}, {235900, \"RPG Maker XP\"}, {235980, \"Tetrobot and Co.\"}, {236090, \"Dust: An Elysian Tail\"}, {236110, \"Dungeon Defenders II\"}, {236390, \"War Thunder\"}, {236430, \"DARK SOULS II\"}, {236470, \"PAC-MAN MUSEUM\"}, {236510, \"Takedown: Red Sabre\"}, {236850, \"Europa Universalis IV\"}, {236930, \"Blackwell Epiphany\"}, {237430, \"Expeditions: Conquistador\"}, {237550, \"Realms of Arkania: Blade of Destiny\"}, {237740, \"Angry Video Game Nerd Adventures\"}, {237870, \"Planet Explorers\"}, {237930, \"Transistor\"}, {237990, \"The Banner Saga\"}, {238010, \"Deus Ex: Human Revolution - Director's Cut\"}, {238090, \"Sniper Elite 3\"}, {238210, \"System Shock 2 (1999)\"}, {238240, \"Edge of Space\"}, {238320, \"Outlast\"}, {238460, \"BattleBlock Theater\"}, {238750, \"Might & Magic X - Legacy\"}, {238890, \"Skyward Collapse\"}, {238960, \"Path of Exile\"}, {239030, \"Papers, Please\"}, {239140, \"Dying Light\"}, {239160, \"Thief\"}, {239800, \"Bleed\"}, {239820, \"Game Dev Tycoon\"}, {240600, \"MotoGP13\"}, {240620, \"Wanderlust Adventures\"}, {240720, \"Getting Over It with Bennett Foddy\"}, {240970, \"Half Minute Hero: The Second Coming\"}, {241240, \"Contraption Maker\"}, {241600, \"Rogue Legacy\"}, {241720, \"Guncraft\"}, {242130, \"Vector Thrust\"}, {242530, \"The Chaos Engine\"}, {242570, \"Space Hulk (Classic)\"}, {242680, \"Nuclear Throne\"}, {242760, \"The Forest\"}, {242780, \"Cognition: An Erica Reed Thriller\"}, {242860, \"Verdun\"}, {242920, \"Banished\"}, {243470, \"Watch_Dogs\"}, {244030, \"Take On Mars\"}, {244160, \"Homeworld Remastered Collection\"}, {244210, \"Assetto Corsa\"}, {244450, \"Men of War: Assault Squad 2\"}, {244690, \"Face Noir\"}, {244810, \"Foul Play\"}, {244850, \"Space Engineers\"}, {244910, \"Homesick\"}, {245050, \"SpellForce 2 - Demons of the Past\"}, {245170, \"Skullgirls 2nd Encore\"}, {245300, \"Disney Epic Mickey 2:  The Power of Two\"}, {245370, \"Etherium\"}, {245490, \"Trials Fusion\"}, {246420, \"Kingdom Rush  - Tower Defense\"}, {246620, \"Plague Inc: Evolved\"}, {246680, \"Secrets of Rætikon\"}, {246760, \"Legends of Eisenwald\"}, {246900, \"Viscera Cleanup Detail\"}, {246960, \"Giana Sisters: Twisted Dreams - Rise of the Owlverlord\"}, {247080, \"Crypt of the NecroDancer\"}, {247370, \"Mutant Mudds Deluxe\"}, {248170, \"Clickteam Fusion 2.5\"}, {248190, \"Knytt Underground\"}, {248310, \"Freedom Planet\"}, {248330, \"Dino Run DX\"}, {248390, \"Craft The World\"}, {248570, \"Toribash\"}, {248820, \"Risk of Rain (2013)\"}, {249130, \"LEGO Marvel Super Heroes\"}, {249680, \"Marlow Briggs and the Mask of Death\"}, {250050, \"Life Goes On: Done to Death\"}, {250110, \"Assault Android Cactus+\"}, {250320, \"The Wolf Among Us\"}, {250380, \"Knock-knock\"}, {250400, \"How to Survive\"}, {250560, \"Fight The Dragon\"}, {250580, \"Paranautical Activity: Deluxe Atonement Edition\"}, {250600, \"The Plan\"}, {250760, \"Shovel Knight: Treasure Trove\"}, {250900, \"The Binding of Isaac: Rebirth\"}, {251060, \"Wargame: Red Dragon\"}, {251110, \"INFRA\"}, {251210, \"Hive\"}, {251230, \"Livelock\"}, {251410, \"Dark Matter\"}, {251450, \"Heroes of Havoc: Idle Adventures\"}, {251530, \"Anomaly Korea\"}, {251570, \"7 Days to Die\"}, {251870, \"Go! Go! Nippon! ~My First Trip to Japan~\"}, {251890, \"World of Diving\"}, {251910, \"Solar Flux\"}, {252010, \"Oniken: Unstoppable Edition\"}, {252030, \"Valdis Story: Abyssal City\"}, {252230, \"YAIBA: NINJA GAIDEN Z\"}, {252430, \"Dusty Revenge:Co-Op Edition\"}, {252490, \"Rust\"}, {252690, \"Fantasy Grounds Classic\"}, {252710, \"The Last Express Gold Edition\"}, {253110, \"The Cat Lady\"}, {253150, \"Halfway\"}, {253230, \"A Hat in Time\"}, {253370, \"Axis Game Factory's AGFPRO v3\"}, {253390, \"Hot Tin Roof: The Cat That Wore A Fedora\"}, {253410, \"Ravensword: Shadowlands\"}, {253840, \"Shantae: Half-Genie Hero\"}, {253860, \"Earth 2140\"}, {253880, \"Earth 2150 Trilogy\"}, {255710, \"Cities: Skylines\"}, {255870, \"PixelJunk Shooter\"}, {256290, \"Child of Light\"}, {257710, \"Max Gentlemen\"}, {261640, \"Borderlands: The Pre-Sequel\"}, {261760, \"Lichdom: Battlemage\"}, {262000, \"Gabriel Knight: Sins of the Fathers 20th Anniversary Edition\"}, {262060, \"Darkest Dungeon\"}, {262410, \"World of Guns: Gun Disassembly\"}, {262450, \"Dead Man's Draw\"}, {262960, \"Castle In The Darkness\"}, {263200, \"Signs of Life\"}, {263300, \"BlazBlue: Calamity Trigger\"}, {263320, \"Saturday Morning RPG\"}, {263400, \"War of the Human Tanks\"}, {263680, \"Unearthed: Trail of Ibn Battuta - Episode 1 - Gold Edition\"}, {263720, \"Brawlout\"}, {264080, \"Vangers\"}, {264200, \"One Finger Death Punch\"}, {264300, \"Guns n Zombies\"}, {264710, \"Subnautica\"}, {265550, \"Dead Rising 3 Apocalypse Edition\"}, {265630, \"Fistful of Frags\"}, {265750, \"Secret Ponchos\"}, {265830, \"Monochroma\"}, {265890, \"Hexcells\"}, {265930, \"Goat Simulator\"}, {265970, \"Worlds of Magic\"}, {266150, \"Lost Saga NA\"}, {266170, \"Windforge\"}, {266230, \"Last Dream\"}, {266840, \"Age of Mythology: Extended Edition\"}, {267060, \"Gravity Badgers\"}, {267340, \"Beware Planet Earth\"}, {267490, \"Batman: Arkham Origins Blackgate - Deluxe Edition\"}, {267900, \"Guilty Gear Isuka\"}, {268050, \"The Evil Within\"}, {268220, \"Meltdown\"}, {268240, \"Mechanic Escape\"}, {268400, \"Panzer Corps Gold\"}, {268500, \"XCOM 2\"}, {268810, \"Paranormal State: Poison Spring\"}, {268910, \"Cuphead\"}, {269010, \"Science Girls\"}, {269030, \"The Yawhg\"}, {269050, \"Year Walk\"}, {269110, \"Super Motherload\"}, {269170, \"Sports Bar VR\"}, {269210, \"Hero Siege\"}, {269330, \"Chronology\"}, {269490, \"Bardbarian\"}, {269650, \"Dex\"}, {269890, \"AR-K\"}, {269950, \"X-Plane 11\"}, {270090, \"//N.P.P.D. RUSH//- The milk of Ultraviolet\"}, {270110, \"Block Story\"}, {270150, \"RUNNING WITH RIFLES\"}, {270170, \"Depression Quest\"}, {270210, \"Melody's Escape\"}, {270770, \"Etherlords\"}, {270880, \"American Truck Simulator\"}, {271240, \"Offworld Trading Company\"}, {271360, \"Industry Giant 2\"}, {271370, \"Transport Giant\"}, {271760, \"Dungeon Lords Steam Edition\"}, {271860, \"Super Killer Hornet: Resurrection\"}, {271900, \"Hexcells Plus\"}, {273070, \"The Last Federation\"}, {273770, \"Game Tycoon 1.5\"}, {274170, \"Hotline Miami 2: Wrong Number\"}, {274190, \"Broforce\"}, {274250, \"OlliOlli\"}, {274270, \"NOT A HERO\"}, {274350, \"Dropsy\"}, {274520, \"Darkwood\"}, {274940, \"Depth\"}, {274980, \"Influent Language Learning Game\"}, {275080, \"Post Master\"}, {275180, \"Costume Quest 2\"}, {275290, \"Graviteam Tactics: Operation Star\"}, {275510, \"Z Steel Soldiers\"}, {275530, \"Z\"}, {275570, \"Summoner\"}, {275670, \"Space Run\"}, {275850, \"No Man's Sky\"}, {277110, \"Return to Mysterious Island\"}, {277490, \"Battle Group 2\"}, {277560, \"Untold Mystery: Angel’s Cry\"}, {277870, \"Diehard Dungeon\"}, {278080, \"DYNASTY WARRIORS 8: Xtreme Legends Complete Edition\"}, {278360, \"A Story About My Uncle\"}, {278570, \"Labyrinthine Dreams\"}, {278930, \"GIGANTIC ARMY\"}, {279440, \"Joe Dever's Lone Wolf HD Remastered\"}, {279640, \"The Troma Project\"}, {279800, \"Grim Legends 2: Song of the Dark Swan\"}, {279900, \"Soul Axiom\"}, {280140, \"Millennium - A New Hope\"}, {280520, \"Crea\"}, {280720, \"Imagine Earth\"}, {281060, \"Reversion - The Meeting (2nd Chapter)\"}, {281200, \"A Boy and His Blob\"}, {281220, \"BloodRayne Betrayal\"}, {281410, \"UberSoldier II\"}, {281450, \"Disciples Sacred Lands Gold\"}, {281750, \"Munin\"}, {281920, \"Splatter - Zombiecalypse Now\"}, {281990, \"Stellaris\"}, {282010, \"Carmageddon Max Pack\"}, {282070, \"This War of Mine\"}, {282140, \"SOMA\"}, {282590, \"Star Ruler 2\"}, {282760, \"Circuits\"}, {282800, \"100% Orange Juice\"}, {283000, \"Strategic War in Europe\"}, {283290, \"Nosferatu: The Wrath of Malachi\"}, {283390, \"Incoming + Incoming Forces\"}, {283640, \"Salt and Sanctuary\"}, {283960, \"Pajama Sam: No Need to Hide When It's Dark Outside\"}, {284160, \"BeamNG.drive\"}, {284240, \"Maize\"}, {284390, \"The Last Door - Collector's Edition\"}, {284710, \"Abyss: The Wraiths of Eden\"}, {284730, \"Dark Arcana: The Carnival\"}, {284750, \"Enigmatis: The Ghosts of Maple Creek\"}, {284790, \"Nightmares from the Deep 2: The Siren`s Call\"}, {284830, \"Clockwork Tales: Of Glass and Ink\"}, {284870, \"9 Clues: The Secret of Serpent Creek\"}, {284890, \"Left in the Dark: No One on Board\"}, {284990, \"Solarix\"}, {285380, \"On The Road - The Truck Simulator\"}, {285480, \"The Entente Gold\"}, {285900, \"Gang Beasts\"}, {285920, \"TerraTech\"}, {286160, \"Tabletop Simulator\"}, {286200, \"ReignMaker\"}, {286360, \"Shadows on the Vatican - Act I: Greed\"}, {286460, \"Black Mirror II\"}, {286480, \"Black Mirror III\"}, {286540, \"Nearwood - Collector's Edition\"}, {286690, \"METRO 2033 Redux\"}, {286810, \"Hard Truck Apocalypse: Rise Of Clans / Ex Machina: Meridian 113\"}, {287020, \"Harvester\"}, {287290, \"Resident Evil Revelations 2\"}, {287390, \"METRO Last Light Redux\"}, {287450, \"Rise of Nations: Extended Edition\"}, {287580, \"Pandora: First Contact\"}, {287630, \"The Council\"}, {287700, \"METAL GEAR SOLID V: THE PHANTOM PAIN\"}, {287980, \"Mini Metro\"}, {288120, \"Dungeonmans\"}, {288160, \"The Room\"}, {288470, \"Fable Anniversary\"}, {289070, \"Sid Meier’s Civilization VI\"}, {289090, \"Ampu-Tea\"}, {289130, \"ENDLESS Legend\"}, {289200, \"Ascension to the Throne\"}, {289280, \"El Matador\"}, {289400, \"Parkan 2\"}, {289500, \"UFO: Aftershock\"}, {289520, \"King's Bounty: Dark Side\"}, {289600, \"Marauder\"}, {289620, \"Collapse\"}, {289650, \"Assassin's Creed Unity\"}, {290510, \"GNOG\"}, {290650, \"Time Ramesside (A New Reckoning)\"}, {290770, \"The Fall\"}, {291190, \"Heroes of Steel RPG\"}, {291390, \"Three Dead Zed\"}, {291550, \"Brawlhalla\"}, {291650, \"Pillars of Eternity\"}, {291710, \"The Lost Crown\"}, {291930, \"Industry Empire\"}, {292030, \"The Witcher 3: Wild Hunt — Remastered\"}, {292120, \"FINAL FANTASY XIII\"}, {292230, \"Game Character Hub\"}, {292620, \"Pressured\"}, {292730, \"Call of Duty: Infinite Warfare\"}, {292930, \"Black Mirror I\"}, {293760, \"Automation - The Car Company Tycoon Game\"}, {294100, \"RimWorld\"}, {294140, \"They Breathe\"}, {294370, \"Crowntakers\"}, {294440, \"Shadowgate\"}, {294750, \"Anomaly Defenders\"}, {295250, \"Stranded\"}, {295750, \"The Floor is Jelly\"}, {295930, \"Swipecart\"}, {296050, \"Battlepaths\"}, {296070, \"MIND: Path to Thalamus Enhanced Edition\"}, {296300, \"Ballistic Overkill\"}, {296710, \"Monstrum\"}, {296830, \"Lucius II\"}, {296910, \"8BitBoy\"}, {297000, \"Heroes of Might & Magic III - HD Edition\"}, {297750, \"Close Combat - Gateway to Caen\"}, {298030, \"Total Annihilation\"}, {298110, \"Far Cry 4\"}, {298600, \"Lovely Planet\"}, {298630, \"The Escapists\"}, {298930, \"Darkness Within 1: In Pursuit of Loath Nolder\"}, {299260, \"Commando Jack\"}, {299420, \"CubeGun\"}, {299740, \"Miscreated\"}, {300060, \"ADR1FT\"}, {300300, \"Ichi\"}, {300320, \"The Few\"}, {300540, \"Sweet Lily Dreams\"}, {300570, \"Infinifactory\"}, {300580, \"GALAK-Z\"}, {301120, \"Eastside Hockey Manager\"}, {301640, \"Zombie Army Trilogy\"}, {301860, \"Submerged\"}, {302060, \"Trucks & Trailers\"}, {302250, \"Manhunter\"}, {302510, \"Ryse: Son of Rome\"}, {302670, \"Call to Arms\"}, {302830, \"BLOCKADE 3D\"}, {303210, \"The Beginner's Guide\"}, {304050, \"Trove\"}, {304240, \"Resident Evil\"}, {304350, \"Wildlife Park 2\"}, {304390, \"FOR HONOR\"}, {304430, \"INSIDE\"}, {304580, \"CITYCONOMY: Service for your City\"}, {304930, \"Unturned\"}, {305380, \"Blue Estate The Game\"}, {305620, \"The Long Dark\"}, {305980, \"Heavy Fire: Afghanistan\"}, {306020, \"Bloons TD 5\"}, {306130, \"The Elder Scrolls Online\"}, {306660, \"Ultimate General: Gettysburg\"}, {306700, \"Iron Fisticle\"}, {307050, \"Shan Gui (山桂)\"}, {307090, \"Fancy Skulls\"}, {307340, \"Platypus\"}, {307580, \"Technobabylon\"}, {307690, \"Sleeping Dogs: Definitive Edition\"}, {307780, \"Mortal Kombat X\"}, {308000, \"Gold Rush! Classic\"}, {308420, \"Ziggurat\"}, {310110, \"NS2: Combat\"}, {310470, \"Grand Ages: Medieval\"}, {310850, \"Onikira - Demon Killer\"}, {310890, \"Breach & Clear: Deadline Rebirth (2016)\"}, {311120, \"The Stalin Subway: Red Veil\"}, {311140, \"The Stalin Subway\"}, {311210, \"Call of Duty: Black Ops III\"}, {311250, \"Doorways: The Underworld\"}, {311340, \"METAL GEAR SOLID V: GROUND ZEROES\"}, {311560, \"Assassin’s Creed Rogue\"}, {311690, \"Enter the Gungeon\"}, {311720, \"Sproggiwood\"}, {311770, \"LEGO Pirates of the Caribbean: The Video Game\"}, {312150, \"Wild Warfare\"}, {312210, \"The Fifth Day\"}, {312520, \"Rain World\"}, {312530, \"Duck Game\"}, {312540, \"Ys VI: The Ark of Napishtim\"}, {312640, \"Power-Up\"}, {312660, \"Sniper Elite 4\"}, {312720, \"Khet 2.0\"}, {312990, \"The Expendabros\"}, {313020, \"Soul Gambler\"}, {313080, \"The Masterplan\"}, {313120, \"Stranded Deep\"}, {313140, \"Blackbay Asylum\"}, {313160, \"Farming Simulator 15\"}, {313340, \"Mountain\"}, {313500, \"Blitzkrieg 2 Anthology\"}, {313650, \"Time Mysteries 2: The Ancient Spectres\"}, {313780, \"Conarium\"}, {313830, \"See No Evil\"}, {314010, \"Boid\"}, {314030, \"Guilty Gear X2 #(0023)Reload\"}, {314070, \"Super Mega Baseball: Extra Innings\"}, {314160, \"Microsoft Flight Simulator X: Steam Edition\"}, {314240, \"RPG Tycoon\"}, {314710, \"Mighty No. 9\"}, {315070, \"Blob From Space\"}, {315460, \"Dig or Die\"}, {315810, \"eden*\"}, {315860, \"Celestian Tales: Old North\"}, {315920, \"Stonerid\"}, {316160, \"Broken Sword 4 - the Angel of Death (2006)\"}, {316240, \"Professional Lumberjack 2015\"}, {316430, \"Battle of Empires : 1914-1918\"}, {317040, \"Strife: Veteran Edition\"}, {317100, \"Republique\"}, {317250, \"Airscape - The Fall of Gravity\"}, {317360, \"Double Action: Boogaloo\"}, {317510, \"Beyond Gravity\"}, {317820, \"Guild of Dungeoneering Ultimate Edition\"}, {318020, \"Act of Aggression - Reboot Edition\"}, {318220, \"Enforcer: Police Crime Action\"}, {318230, \"Convoy\"}, {318530, \"Wings of Vi\"}, {319050, \"Chaos Reborn\"}, {319180, \"Platypus II\"}, {319320, \"Time Mysteries 3: The Final Enigma\"}, {319450, \"Chariot\"}, {319470, \"Ninja Pizza Girl\"}, {319510, \"Five Nights at Freddy's\"}, {319550, \"The Collider\"}, {319570, \"Heroes of SoulCraft - Arcade MOBA\"}, {319630, \"Life is Strange - Episode 1\"}, {319730, \"GRANADO ESPADA\"}, {320140, \"Absolute Drift\"}, {320300, \"Car Mechanic Simulator 2015\"}, {320320, \"Darkstone\"}, {320400, \"Magnifico\"}, {320430, \"Ascension: Deckbuilding Game\"}, {320540, \"Coffin Dodgers\"}, {320630, \"Season Match\"}, {320690, \"The Treasures of Montezuma 3\"}, {321150, \"Melissa K. and the Heart of Gold Collector's Edition\"}, {321260, \"Wickland\"}, {321480, \"Sigils of Elohim\"}, {321840, \"Rising Angels: Reborn\"}, {321920, \"Schein\"}, {322170, \"Geometry Dash\"}, {322330, \"Don't Starve Together\"}, {322500, \"SUPERHOT\"}, {322520, \"DYNASTY WARRIORS 8 Empires\"}, {322680, \"BLACKHOLE\"}, {322850, \"Pro Cycling Manager 2015\"}, {323190, \"Frostpunk\"}, {323380, \"The Magic Circle\"}, {323460, \"Raiden IV: OverKill\"}, {323470, \"DRAGON BALL XENOVERSE\"}, {323850, \"Move or Die\"}, {324070, \"iO\"}, {324140, \"Kalimba\"}, {324160, \"CLANNAD\"}, {324260, \"VoidExpanse\"}, {324510, \"Boundless\"}, {324570, \"Halo: Spartan Strike\"}, {324680, \"Impossible Creatures Steam Edition\"}, {324800, \"Shadow Warrior 2\"}, {325090, \"Deep Dungeons of Doom\"}, {325120, \"Notch - The Innocent LunA: Eclipsed SinnerS\"}, {325420, \"Homebrew - Patent Unknown\"}, {325520, \"Fire: Ungh’s Quest\"}, {325610, \"Total War: ATTILA\"}, {326190, \"Alchemy Mysteries: Prague Legends\"}, {326340, \"River City Super Sports Challenge ~All Stars Special~\"}, {326460, \"ShellShock Live\"}, {326480, \"If My Heart Had Wings\"}, {327670, \"Ironcast\"}, {327740, \"TRON 2.0\"}, {328100, \"Gunspell - Steam Edition\"}, {328270, \"Leviathan: The Last Day of the Decade\"}, {328500, \"Potatoman Seeks the Troof\"}, {329380, \"Stealth Inc 2: A Game of Clones\"}, {329490, \"Phantom Breaker: Battle Grounds Classic\"}, {329970, \"KeeperRL\"}, {330180, \"Pix the Cat\"}, {330350, \"Robotex\"}, {330580, \"Shark Attack Deathmatch 2\"}, {330990, \"Demon Hunter: Chronicles from Beyond\"}, {331480, \"Pinstripe\"}, {331750, \"Disney•Pixar WALL-E\"}, {331790, \"Data Hacker: Reboot\"}, {332200, \"Axiom Verge\"}, {333120, \"Inside The Gear\"}, {333430, \"Sinking Island\"}, {333880, \"Braveland Wizard\"}, {334190, \"Insanity's Blade\"}, {334300, \"Fake Colours\"}, {334420, \"Out There: Ω Edition\"}, {335000, \"Tormentum - Dark Sorrow\"}, {335120, \"Serpent in the Staglands\"}, {335320, \"Bet On Soldier\"}, {335430, \"Grimoire: Manastorm\"}, {335820, \"Dream Of Mirror Online\"}, {336040, \"Combat Monsters\"}, {336060, \"Raptor: Call of The Shadows - 2015 Edition\"}, {336150, \"Virtual Pool 4\"}, {336240, \"Typoman\"}, {336420, \"Bloodsports.TV\"}, {336520, \"Might & Magic Heroes Online\"}, {336610, \"Outcast 1.1\"}, {337270, \"Ostrich Island\"}, {337360, \"Dead Island Retro Revenge\"}, {337420, \"Final Dusk\"}, {338120, \"Marble Duel: Sphere-Matching Tactical Fantasy\"}, {339120, \"Fork Parker's Holiday Profit Hike\"}, {339130, \"Morningstar: Descent to Deadrock\"}, {339290, \"Castle\"}, {339350, \"Choice of Robots\"}, {339470, \"Retention\"}, {340000, \"Headlander\"}, {340070, \"Battle Ranch: Pigs vs Plants\"}, {340310, \"Teddy Floppy Ear - Kayaking\"}, {340350, \"Quintet\"}, {340490, \"Subterrain\"}, {340520, \"Tallowmere\"}, {340730, \"Sunrider Academy\"}, {340830, \"Razenroth\"}, {341060, \"The Lady\"}, {341950, \"Lux Delux\"}, {342310, \"RIOT: Civil Unrest\"}, {342380, \"Sakura Angels\"}, {342580, \"12 Labours of Hercules\"}, {342610, \"HyperRogue\"}, {342620, \"It came from space and ate our brains\"}, {342640, \"Pixel Privateers\"}, {343070, \"World of Subways 4 – New York Line 7\"}, {343090, \"SimpleRockets\"}, {343100, \"Overture\"}, {343740, \"InMind VR\"}, {343860, \"Tacoma\"}, {343930, \"Fort Defense\"}, {344190, \"Immortal Empire\"}, {344230, \"Pixel Puzzles 2: Birds\"}, {344850, \"Big Pharma\"}, {345200, \"Tasty Blue\"}, {345220, \"Agent Awesome\"}, {345240, \"SHOGUN: Total War - Collection\"}, {345260, \"Medieval: Total War - Collection\"}, {345330, \"Eden Rising\"}, {345390, \"King's Quest\"}, {345820, \"Shantae and the Pirate's Curse\"}, {345860, \"Super Galaxy Squadron EX Turbo\"}, {346180, \"David.\"}, {346210, \"Garden Rescue\"}, {346560, \"Hero of the Kingdom II\"}, {346630, \"Plazma Being\"}, {346830, \"FINAL FANTASY IV: THE AFTER YEARS\"}, {347590, \"Heroes of Hellas 3: Athens\"}, {347600, \"Total Miner\"}, {347830, \"Fairy Fencer F\"}, {348200, \"Nimble Writer\"}, {348270, \"Social Justice Warriors\"}, {348510, \"Autobahn Police Simulator\"}, {348710, \"Saint Seiya: Soldiers' Soul\"}, {348820, \"FIM Speedway Grand Prix 15\"}, {349440, \"The Undying Plague\"}, {350010, \"Time Mysteries: Inheritance - Remastered\"}, {350020, \"The Gate\"}, {350070, \"Environmental Station Alpha\"}, {350700, \"Red Stone Online\"}, {350740, \"The Bug Butcher\"}, {350910, \"Streets of Fury EX\"}, {350970, \"Planet of the Eyes\"}, {351140, \"Rustbucket Rumble\"}, {351250, \"Avalanche 2: Super Avalanche\"}, {351630, \"Fire With Fire Tower Attack and Defense\"}, {351700, \"UnReal World\"}, {351710, \"Hyperdimension Neptunia Re;Birth2: Sisters Generation\"}, {351910, \"Valhalla Hills\"}, {352460, \"Dead Realm\"}, {352550, \"Urban Empire\"}, {352700, \"Subspace Continuum\"}, {352890, \"Caravan\"}, {353090, \"Chicken Invaders 5\"}, {353540, \"Stephen's Sausage Roll\"}, {353700, \"The Deadly Tower of Monsters\"}, {354160, \"WRC 5 FIA World Rally Championship\"}, {354380, \"Assassin’s Creed Chronicles: China\"}, {354430, \"STAR WARS - X-Wing Special Edition\"}, {354680, \"Adventures of Bertram Fiddle 1: A Dreadly Business\"}, {355050, \"Sky Force Anniversary\"}, {355250, \"STAR WARS: TIE Fighter Special Edition\"}, {355800, \"Space Run Galaxy\"}, {356050, \"Beyond Eyes\"}, {356400, \"Thumper\"}, {356520, \"Port of Call\"}, {356890, \"One More Line\"}, {357330, \"Space Beast Terror Fright\"}, {357500, \"Rumble Fighter: Unleashed\"}, {357780, \"Defend Your Life: TD\"}, {358070, \"Earthtongue\"}, {358090, \"D4: Dark Dreams Don’t Die -Season One-\"}, {359050, \"Shower With Your Dad Simulator 2015: Do You Still Shower With Your Dad\"}, {359100, \"Q.U.B.E. 2\"}, {360380, \"Tiny Bridge: Ratventure\"}, {360620, \"Spellsworn\"}, {360650, \"12 Labours of Hercules III: Girl Power\"}, {361550, \"Cradle\"}, {361630, \"404Sight\"}, {361800, \"Tree of Life\"}, {361850, \"Portal of Evil: Stolen Runes Collector's Edition\"}, {362400, \"Regimental Chess\"}, {363150, \"Romance of the Three Kingdoms XIII\"}, {363330, \"Mind Snares: Alice's Journey\"}, {363360, \"Interstellar Rift\"}, {363610, \"Botology\"}, {363790, \"Egg Returns Home\"}, {364300, \"Space Rogue\"}, {364390, \"Downfall\"}, {364690, \"SUPER DISTRO\"}, {364910, \"Redemption: Saints And Sinners\"}, {365050, \"Escape\"}, {365810, \"Flying Tigers: Shadows Over China\"}, {366240, \"GAROU: MARK OF THE WOLVES\"}, {366800, \"Mainland\"}, {366910, \"The Long Journey Home\"}, {367120, \"Seduce Me the Otome\"}, {367270, \"Angels Fall First\"}, {367570, \"oO\"}, {367670, \"Controller Companion\"}, {368180, \"Polyball\"}, {368430, \"Through the Woods\"}, {368620, \"Timespinner\"}, {368720, \"Sirius\"}, {368730, \"No Time To Explain Remastered\"}, {368950, \"Jigoku Kisetsukan: Sense of the Seasons\"}, {369110, \"The Swindle\"}, {369440, \"Immortal: Unchained\"}, {369530, \"Void Destroyer 2\"}, {369580, \"NotTheNameWeWanted\"}, {370510, \"Marble Mayhem: Fragile Ball\"}, {371330, \"Two Digits\"}, {371390, \"Flix The Flea\"}, {371420, \"Teddy Floppy Ear - The Race\"}, {371670, \"Rolling Sun\"}, {373180, \"Kung Fury: Street Rage - Ultimate Edition\"}, {373240, \"Black Sails - The Ghost Ship\"}, {374670, \"Ember Strike\"}, {374830, \"Defend The Highlands\"}, {374900, \"Agatha Christie - The ABC Murders\"}, {375120, \"Super Star Path\"}, {375200, \"Sakura Fantasy\"}, {375450, \"NOBUNAGA'S AMBITION: Sphere of Influence - Ascension\"}, {375520, \"Taimumari: Definitive Edition\"}, {375600, \"Air Brawl\"}, {375680, \"Apartment 666\"}, {375900, \"Trackmania Turbo\"}, {376310, \"Otherland MMO\"}, {376680, \"Splendor\"}, {376920, \"Tiki Man\"}, {377330, \"Close Your Eyes [Old Version]\"}, {377600, \"Tcheco in the Castle of Lucio\"}, {377680, \"Sakura Beach\"}, {377760, \"Fox & Flock\"}, {377970, \"Void And Meddler\"}, {378360, \"Ymir\"}, {378610, \"Valley\"}, {378660, \"Blues and Bullets\"}, {378720, \"Thea: The Awakening\"}, {380020, \"Three Heroes\"}, {380140, \"The Secret of Tremendous Corporation\"}, {380360, \"Tap Tap Infinity\"}, {381020, \"Sky Rogue\"}, {381870, \"Koala Kids\"}, {382050, \"Eon Altar\"}, {382140, \"SKYHILL\"}, {383330, \"Star Chronicles: Delta Quadrant\"}, {384030, \"Florensia\"}, {384080, \"Industry Manager: Future Technologies\"}, {384550, \"Painters Guild\"}, {384570, \"Zanzarah: The Hidden Portal\"}, {384980, \"Battle for Blood - Epic battles within 30 seconds!\"}, {385240, \"Ultimate Arena\"}, {385380, \"Planet Centauri\"}, {385560, \"Shadow Complex Remastered\"}, {385710, \"INK\"}, {386080, \"Pharaonic\"}, {386420, \"Job the Leprechaun\"}, {386560, \"Psycho Starship Rampage\"}, {386640, \"Affected Zone Tactics\"}, {387370, \"Sol 0: Mars Colonization\"}, {388320, \"1979 Revolution: Black Friday\"}, {388390, \"\"\"Glow Ball\"\" - The billiard puzzle game\"}, {388620, \"DungeonUp\"}, {389140, \"Horizon Chase Turbo\"}, {389170, \"Songs for a Hero - Definitive Edition\"}, {389270, \"Through Abandoned: The Underground City\"}, {389400, \"The chronicles of Emerland. Solitaire.\"}, {389700, \"My Bones\"}, {390030, \"DESYNC\"}, {390100, \"9Dragons\"}, {390710, \"Acceleration of SUGURI 2\"}, {391040, \"F1 2016\"}, {391280, \"Epic Manager - Create Your Own Adventuring Agency!\"}, {391420, \"Gun Rocket\"}, {391600, \"King Lucas\"}, {391740, \"Blaster Shooter GunGuy!\"}, {392040, \"War Blade\"}, {392450, \"Silver Creek Falls: Chapter 1\"}, {392820, \"Wild Island Quest\"}, {392950, \"Lost Lands: A Hidden Object Adventure\"}, {393190, \"TSIOQUE\"}, {393430, \"Ice Lakes\"}, {394120, \"Atom Universe\"}, {394280, \"Dark Heritage: Guardians of Hope\"}, {394450, \"Warhammer 40,000: Deathwatch - Enhanced Edition\"}, {394540, \"Spaceport Hope\"}, {394760, \"Dead Effect 2\"}, {394870, \"Office Battle\"}, {395200, \"Ben and Ed\"}, {395380, \"ANKI\"}, {396030, \"InCell VR\"}, {396360, \"LocoSoccer Classic\"}, {396650, \"ACE Academy\"}, {396710, \"The Adventure Pals\"}, {396790, \"Dracula's Legacy\"}, {396890, \"Gridworld\"}, {397430, \"Zoombinis\"}, {399120, \"Prospekt\"}, {399130, \"Massive Cleavage vs Zombies: Awesome Edition\"}, {399670, \"Game Corp DX\"}, {399790, \"Destiny Warriors RPG\"}, {399890, \"The Secret Order 2: Masked Intent\"}, {400170, \"The Incredible Adventures of Van Helsing: Final Cut\"}, {400450, \"NeuroVoider\"}, {401710, \"Flinthook\"}, {402040, \"The Guest\"}, {402310, \"Overfall\"}, {402750, \"Giant Machines 2017\"}, {402880, \"Age of Barbarian Extended Cut\"}, {403180, \"Draw a Stickman: EPIC 2\"}, {403400, \"ARCADE GAME SERIES: DIG DUG\"}, {403430, \"ARCADE GAME SERIES: GALAGA\"}, {404200, \"WARTILE\"}, {404480, \"SC2VN - The eSports Visual Novel\"}, {404540, \"Nex Machina\"}, {404640, \"Game Tycoon 2\"}, {404690, \"This Book Is A Dungeon\"}, {404770, \"SUPERFIGHT\"}, {405290, \"Charlie Murder\"}, {405610, \"Flight of the Paladin\"}, {405710, \"Staxel\"}, {405780, \"Alpha Polaris : A Horror Adventure Game\"}, {405820, \"Turok\"}, {405950, \"Lowglow\"}, {406720, \"Alekhine's Gun\"}, {406870, \"Eventide: Slavic Fable\"}, {407120, \"Soccer Manager 2016\"}, {407230, \"Legend of Mysteria RPG\"}, {407300, \"The Last NightMary - A Lenda do Cabeça de Cuia\"}, {407330, \"Sakura Dungeon\"}, {407560, \"Killing Room\"}, {407840, \"Guardians of Orion (Phase 2)\"}, {408280, \"Message Quest\"}, {408740, \"Pro Gamer Manager\"}, {408930, \"ePic Character Generator\"}, {409100, \"The Purring Quest\"}, {409510, \"Genesis Online\"}, {409690, \"Pink Heaven\"}, {409870, \"Phantom Brave PC\"}, {410380, \"HEX: Shards of Fate\"}, {410850, \"DRAGON QUEST HEROES Slime Edition\"}, {411000, \"Sorcery! Parts 1 and 2\"}, {411120, \"Galaxy Admirals\"}, {411560, \"Reveal The Deep\"}, {412170, \"City of Chains\"}, {412600, \"Lup\"}, {412740, \"Audioshield\"}, {412830, \"STEINS;GATE\"}, {413150, \"Stardew Valley\"}, {413420, \"Danganronpa 2: Goodbye Despair\"}, {413710, \"Blood and Gold: Caribbean!\"}, {414080, \"Life is Hard\"}, {414340, \"Hellblade: Senua's Sacrifice\"}, {414550, \"Death Toll\"}, {414700, \"Outlast 2\"}, {414740, \"RAID: World War II\"}, {415030, \"One More Dungeon\"}, {415200, \"Motorsport Manager\"}, {415350, \"Shooting Stars!\"}, {415400, \"Cross Set\"}, {415480, \"Hyperdevotion Noire: Goddess Black Heart (Neptunia)\"}, {415610, \"Red Comrades Save the Galaxy: Reloaded\"}, {415860, \"Tactical Craft Online\"}, {415880, \"Disc Jam\"}, {416040, \"CLASH\"}, {416210, \"Block'hood\"}, {416690, \"Oh...Sir! Prototype\"}, {416770, \"SquareCells\"}, {417430, \"Moto Racer  4\"}, {417750, \"Left Alone\"}, {417860, \"Emily is Away\"}, {418180, \"Tempest: Pirate Action RPG\"}, {418190, \"Helen's Mysterious Castle\"}, {418240, \"Shadow Tactics: Blades of the Shogun\"}, {418250, \"Polaris Sector\"}, {418370, \"Resident Evil 7 Biohazard\"}, {418460, \"Rising Storm 2: Vietnam\"}, {419460, \"That Dragon, Cancer\"}, {420110, \"NEKOPARA Vol. 2\"}, {420290, \"Blackwake\"}, {420530, \"OneShot\"}, {420790, \"StarBreak\"}, {421700, \"Sakura Santa\"}, {422130, \"Comic Book Hero: The Greatest Cape\"}, {423230, \"Furi\"}, {423550, \"Day D: Tower Rush\"}, {423810, \"Marooners\"}, {424250, \"Balrum\"}, {425670, \"Seraph\"}, {427250, \"8-Bit Armies\"}, {427290, \"Vampyr\"}, {427520, \"Factorio\"}, {427780, \"PERFECT ANGLE: The puzzle game based on optical illusions\"}, {427820, \"Hitman GO: Definitive Edition\"}, {427980, \"Aozora Meikyuu\"}, {429300, \"Sepia Tears\"}, {429580, \"A Wild Catgirl Appears!\"}, {429620, \"Dungeon Rushers\"}, {429700, \"Squirbs\"}, {429720, \"IMSCARED\"}, {429780, \"Bunny Hop League\"}, {430070, \"Never Again\"}, {430210, \"Megaton Rainfall\"}, {431250, \"Mushroom Wars\"}, {431500, \"Clash of the Monsters\"}, {431600, \"Automobilista\"}, {431710, \"Space Pilgrim Episode II: Epsilon Indi\"}, {431750, \"Iron Sea Defenders\"}, {431810, \"Rencounter\"}, {433100, \"The Town of Light\"}, {434020, \"Last Hope - Tower Defense\"}, {434030, \"Aerofly FS 2 Flight Simulator\"}, {434250, \"Masked Shooters 2\"}, {434510, \"Formicide\"}, {434730, \"Half Dead\"}, {435030, \"Lost Lands: Mahjong\"}, {435150, \"Divinity: Original Sin 2 - Definitive Edition\"}, {436160, \"The Panic Room\"}, {436320, \"Raw Data\"}, {436670, \"The Legend of Heroes: Trails in the Sky the 3rd\"}, {437570, \"GoNNER\"}, {437630, \"State of Mind\"}, {437920, \"Tricky Towers\"}, {438040, \"Shakes and Fidget\"}, {438080, \"Surfingers\"}, {438100, \"VRChat\"}, {438140, \"Star Realms\"}, {440420, \"True Fear: Forsaken Souls Part 1\"}, {440630, \"The Brookhaven Experiment\"}, {440760, \"Cube Destroyer\"}, {440900, \"Conan Exiles Enhanced\"}, {441010, \"Mount Your Friends 3D: A Hard Man is Good to Climb\"}, {441380, \"PAC-MAN CHAMPIONSHIP EDITION 2\"}, {441550, \"STAR WARS Rebellion\"}, {441790, \"Fragmented\"}, {441830, \"I am Setsuna\"}, {442500, \"Age of Gladiators\"}, {442810, \"UFO Online: Invasion\"}, {444090, \"Paladins\"}, {444160, \"Bonsai\"}, {444200, \"World of Tanks Blitz\"}, {444280, \"Alice's Patchwork\"}, {444640, \"Bloons TD Battles\"}, {444720, \"Inexistence\"}, {445110, \"Tasty Planet: Back for Seconds\"}, {445190, \"Expeditions: Viking\"}, {445220, \"Avorion\"}, {445720, \"Battle Islands: Commanders\"}, {445980, \"Wizard of Legend\"}, {446020, \"Jalopy\"}, {446380, \"Sophie's Curse\"}, {446620, \"Zombie Training Simulator\"}, {446780, \"AMOK\"}, {446790, \"Diluvion: Resubmerged\"}, {446990, \"The Huntsman: Winter's Curse\"}, {447020, \"Farming Simulator 17\"}, {447040, \"Watch_Dogs 2\"}, {447530, \"VA-11 Hall-A: Cyberpunk Bartender Action\"}, {447820, \"Day of Infamy\"}, {448000, \"Sparkle ZERO\"}, {448280, \"Job Simulator\"}, {448440, \"Bizarre Earthquake\"}, {448510, \"Overcooked\"}, {448780, \"Sixtieth Kilometer\"}, {448850, \"Overload\"}, {449040, \"Jesus Christ RPG Trilogy\"}, {449300, \"Planar Conquest\"}, {449530, \"Grand Pigeon's Duty\"}, {449540, \"There's Poop In My Soup\"}, {449710, \"REDCON\"}, {450170, \"BOOR\"}, {450190, \"MAZE LORD\"}, {450220, \"Overload Playable Teaser 3.0\"}, {450540, \"Hot Dogs, Horseshoes & Hand Grenades\"}, {450670, \"Table Top Racing: World Tour\"}, {451020, \"Battle Chasers: Nightwar\"}, {451340, \"Gold Mining Simulator\"}, {451650, \"Whirligig Media Player\"}, {451760, \"Highway Blossoms\"}, {451780, \"Trillion: God of Destruction\"}, {451980, \"The Body VR: Journey Inside a Cell\"}, {452440, \"Flowers -Le volume sur printemps-\"}, {452710, \"Realities\"}, {453270, \"Madness Cubed\"}, {453340, \"Hustle Cat\"}, {453670, \"The Lost Souls\"}, {453690, \"Dark Quest 2\"}, {453720, \"Last Will\"}, {454100, \"Dungeon Escape\"}, {454250, \"The Eyes of Ara\"}, {454650, \"DRAGON BALL XENOVERSE 2\"}, {454950, \"Mainlining\"}, {455400, \"PAC-MAN 256\"}, {455440, \"Spell Fighter VR\"}, {455910, \"STAR WARS: Rogue Squadron 3D\"}, {455980, \"Judgment: Apocalypse Survival Simulation\"}, {456750, \"The Room Three\"}, {457140, \"Oxygen Not Included\"}, {457320, \"HoloBall\"}, {457420, \"Surgeon Simulator VR: Meet The Medic\"}, {457480, \"Domino Sky\"}, {457730, \"Mushroom Wars 2\"}, {457860, \"Apollo 11 VR\"}, {457960, \"Holopoint\"}, {458470, \"Grim Legends 3: The Dark City\"}, {458520, \"Wrath of Anna\"}, {458560, \"Plastic Playground\"}, {458600, \"ZRoll\"}, {458710, \"Kingdom Rush Frontiers - Tower Defense\"}, {458730, \"Conception II: Children of the Seven Stars\"}, {458770, \"WRC 6 FIA World Rally Championship\"}, {459090, \"Masquerada: Songs and Shadows\"}, {459820, \"Crush Crush\"}, {460430, \"The Letter - Horror Visual Novel\"}, {460790, \"Bayonetta\"}, {460920, \"Steep\"}, {460930, \"Tom Clancy's Ghost Recon Wildlands\"}, {460950, \"Katana ZERO\"}, {461520, \"Grizzly Valley\"}, {461640, \"Sins Of The Demon RPG\"}, {461840, \"Zenge\"}, {462100, \"Starr Mazer: DSP\"}, {462780, \"Darksiders Warmastered Edition\"}, {462960, \"Caveman World: Mountains of Unga Boonga\"}, {463110, \"Farnham Fables\"}, {463150, \"BARRIER X\"}, {463390, \"One Thousand Lies\"}, {463530, \"Empires of the Undergrowth\"}, {463980, \"Solitairica\"}, {464340, \"Syberia 3\"}, {464360, \"3030 Deathwar Redux - A Space Odyssey\"}, {464960, \"Hiiro\"}, {465170, \"Crime Secrets: Crimson Lily\"}, {465240, \"Serious Sam VR: The Last Hope\"}, {465490, \"Stellar Tactics\"}, {465760, \"Scrap Garden\"}, {466560, \"Northgard: Definitive Edition\"}, {466660, \"Stash\"}, {466730, \"King's Guard TD\"}, {466840, \"Super Space Pug\"}, {466890, \"Z.I.O.N.\"}, {466940, \"The Sandbox Evolution - Craft a 2D Pixel Universe!\"}, {467360, \"Off-Peak\"}, {467380, \"Khimera: Destroy All Monster Girls\"}, {467390, \"Approaching Blocks\"}, {468320, \"Mini Golf Mundo\"}, {468560, \"Blind Trust\"}, {469600, \"Legion TD 2 - Multiplayer Tower Defense\"}, {470220, \"UNO\"}, {470260, \"Event[0]\"}, {470270, \"Tribal Pass\"}, {471010, \"Seven: Enhanced Edition\"}, {471330, \"VERSUS SQUAD\"}, {471630, \"Rexodus: A VR Story Experience\"}, {473670, \"The Dolls: Reborn\"}, {473770, \"BallisticNG\"}, {474910, \"The Mahjong Huntress\"}, {474960, \"Quantum Break\"}, {475150, \"Titan Quest Anniversary Edition\"}, {475190, \"Scanner Sombre\"}, {475550, \"Beholder\"}, {476360, \"Strike Vector EX\"}, {476460, \"Picross Touch\"}, {476600, \"Call of Duty: WWII\"}, {476650, \"The Silver Case\"}, {477160, \"Human Fall Flat\"}, {477200, \"Descent: Road to Legend\"}, {477270, \"Lightblade VR\"}, {477740, \"Zero Escape: The Nonary Games\"}, {477770, \"Ride 2\"}, {477870, \"Yomawari: Night Alone\"}, {478010, \"ABC Coloring Town\"}, {478980, \"Mansions of Madness\"}, {480480, \"Slash or Die\"}, {480490, \"Prey\"}, {481110, \"The Bunker\"}, {481510, \"Night in the Woods\"}, {481870, \"Mini Thief\"}, {482450, \"Nitroplus Blasterz: Heroines Infinite Duel\"}, {483420, \"Adam Wolfe\"}, {485030, \"PLANET ALPHA\"}, {485330, \"Star Drifter\"}, {485350, \"Winter Novel\"}, {485380, \"Welcome to the Game\"}, {485450, \"Ninja Stealth\"}, {485460, \"The Banner Saga 3\"}, {485510, \"Nioh: Complete Edition\"}, {485650, \"Campaign Clicker\"}, {485690, \"Hope Lake\"}, {485730, \"Shift\"}, {485870, \"Super Duper Party Pooper\"}, {486480, \"Tales of Destruction\"}, {487370, \"Akin\"}, {487430, \"KARAKARA\"}, {487700, \"Conan the mighty pig\"}, {487720, \"Agony\"}, {488440, \"Angeldust\"}, {488730, \"God's Trigger\"}, {488790, \"South Park: The Fractured But Whole\"}, {489140, \"Mr. Shifty\"}, {489520, \"Minion Masters\"}, {489830, \"The Elder Scrolls V: Skyrim Special Edition\"}, {490840, \"Gnomes & Goblins (preview)\"}, {490980, \"Daily Chthonicle: Editor's Edition\"}, {491040, \"Bot Vice\"}, {491650, \"Reset 1-1\"}, {492720, \"Tropico 6\"}, {492800, \"Shonen Idle Z\"}, {493340, \"Planet Coaster\"}, {493490, \"City Car Driving\"}, {493710, \"Laraan\"}, {493840, \"Marvel vs. Capcom: Infinite\"}, {493900, \"Dungeons 3\"}, {495050, \"Mega Man Legacy Collection 2\"}, {495110, \"Enigmatis 3: The Shadow of Karkhala\"}, {495580, \"Divided We Fall: Play For Free\"}, {495890, \"Montaro\"}, {496550, \"Noob Squad\"}, {496640, \"Strange Night\"}, {496650, \"Antihorror\"}, {496730, \"Sorcerer King: Rivals\"}, {496750, \"The Housewife\"}, {497050, \"Shape Shifter\"}, {497640, \"Trick & Treat\"}, {497730, \"The Wardrobe - Even Better Edition\"}, {497860, \"Zezenia Online\"}, {498240, \"Batman - The Telltale Series\"}, {499460, \"Tomato Jones\"}, {499890, \"Aaero\"}, {500580, \"Kitty Cat: Jigsaw Puzzles\"}, {500670, \"Tormentor❌Punisher\"}, {500710, \"Wild Terra Online\"}, {501080, \"Fishing: Barents Sea\"}, {501180, \"Acan's Call: Act 1\"}, {501300, \"What Remains of Edith Finch\"}, {501320, \"The Shrouded Isle\"}, {501590, \"Bulletstorm: Full Clip Edition\"}, {501760, \"Francisca\"}, {501790, \"Unforeseen Incidents\"}, {501840, \"Don't Disturb\"}, {501990, \"Phantasmagoria\"}, {502090, \"Invisible Mind\"}, {502140, \"Drayt Empire\"}, {502240, \"You Deserve\"}, {502280, \"BERSERK and the Band of the Hawk\"}, {502370, \"Warhammer 40,000: Sanctus Reach (Classic)\"}, {502400, \"Redactem\"}, {502500, \"ACE COMBAT 7: SKIES UNKNOWN\"}, {502520, \"Ultimate General: Civil War\"}, {502740, \"50 years\"}, {502750, \"Quest for Glory 1-5\"}, {502770, \"Voodoo Garden\"}, {502800, \"SENRAN KAGURA ESTIVAL VERSUS\"}, {502820, \"Batman: Arkham VR\"}, {502880, \"The Janitor\"}, {502940, \"Calm Down, Stalin\"}, {503240, \"Hurricane\"}, {503340, \"Dig 4 Destruction\"}, {503350, \"White Noise 2\"}, {503370, \"Hospitalize\"}, {503400, \"Four Last Things\"}, {503560, \"911 Operator\"}, {503580, \"Duck Season\"}, {503620, \"Fictorum\"}, {503630, \"INVASION!\"}, {503770, \"Elven Assassin\"}, {503820, \"A Detective's Novel\"}, {503940, \"Railway Empire\"}, {504000, \"Endless Fables: The Minotaur's Curse\"}, {504050, \"Planet Nomads\"}, {504130, \"Manual Samuel - Last Tuesday Edition\"}, {504210, \"SHENZHEN I/O\"}, {504230, \"Celeste\"}, {504310, \"The Cooking Game\"}, {504370, \"Battlerite\"}, {504390, \"Along the Edge\"}, {504400, \"Optika\"}, {504490, \"The God's Chain\"}, {504770, \"Slavistan\"}, {504920, \"39 Days to Mars\"}, {504980, \"Elves Adventure\"}, {505170, \"Carmageddon: Max Damage\"}, {505210, \"Neon Space 2\"}, {505330, \"Apocalipsis\"}, {505460, \"Foxhole\"}, {505630, \"Let Them Come\"}, {505640, \"Antihero\"}, {505730, \"Holy Potatoes! We’re in Space?!\"}, {505750, \"Trimmer Tycoon\"}, {506500, \"Party Panic\"}, {506510, \"Shadows of Adam\"}, {506610, \"Five Nights at Freddy's: Sister Location\"}, {506730, \"Dinosaur Forest\"}, {506870, \"Unexplored\"}, {506900, \"Downward: Enhanced Edition\"}, {507010, \"Mr.President!\"}, {507380, \"Black Sand Drift\"}, {507390, \"Gone In November\"}, {507490, \"Ashes of the Singularity: Escalation\"}, {507520, \"Zzzz-Zzzz-Zzzz\"}, {508180, \"Fly and Destroy\"}, {508190, \"Dragon Knight\"}, {508290, \"$1 Ride\"}, {508300, \"Strategy & Tactics: Dark Ages\"}, {508390, \"Scrap Garden - The Day Before\"}, {508440, \"Totally Accurate Battle Simulator\"}, {508530, \"HackyZack\"}, {508550, \"Sneak Thief\"}, {508600, \"ROD: Revolt Of Defense\"}, {508740, \"Wheels of Aurelia\"}, {508790, \"Flat Heroes\"}, {508900, \"Zup! X\"}, {508980, \"Crashday Redline Edition\"}, {508990, \"Handsome Mr. Frog\"}, {509110, \"Spikit\"}, {509220, \"Save Jesus\"}, {509250, \"TO THE TOP\"}, {509570, \"In Celebration of Violence\"}, {509580, \"The Lord of the Rings: Adventure Card Game - Definitive Edition\"}, {509600, \"Battle Time\"}, {509980, \"BIGFOOT\"}, {510050, \"You Have 10 Seconds\"}, {510420, \"The Hex\"}, {510490, \"The Fall Part 2: Unbound\"}, {510500, \"Executive Assault 2\"}, {510540, \"Long Gone Days\"}, {510620, \"THOTH\"}, {510650, \"Eventide 2: The Sorcerers Mirror\"}, {510840, \"Evolvation\"}, {511140, \"New York Mysteries: The Lantern of Souls Collector's Edition\"}, {511470, \"Glass Masquerade\"}, {511680, \"Fate/EXTELLA\"}, {511740, \"Gal*Gun: Double Peace\"}, {511800, \"ONRAID\"}, {512060, \"Stay! Stay! Democratic People's Republic of Korea!\"}, {512080, \"Fancy Skiing VR\"}, {512180, \"Nightshade/百花百狼\"}, {512250, \"Oh...Sir!! The Insult Simulator\"}, {512300, \"Unbox: Newbie's Adventure\"}, {512470, \"The Pirate: Caribbean Hunt\"}, {512490, \"Zombie Estate 2\"}, {512560, \"HoCWar\"}, {512640, \"Final Quest\"}, {512790, \"Quern - Undying Thoughts\"}, {512900, \"Streets of Rogue\"}, {513000, \"KUBOOM\"}, {513230, \"The Underground Man\"}, {513290, \"Lucius III\"}, {513320, \"ALICE VR\"}, {513330, \"Party Tycoon\"}, {513450, \"Drop Alive\"}, {513510, \"Intralism\"}, {513560, \"Hunger Dungeon\"}, {513570, \"Wooden House\"}, {513590, \"So Many Cubes\"}, {513620, \"SkyTime\"}, {513710, \"SCUM\"}, {513740, \"Joana's Life\"}, {513780, \"Turbo Pug DX\"}, {513890, \"The Frostrune\"}, {514090, \"Beautiful Japanese Scenery - Animated Jigsaws\"}, {514240, \"ALONE?\"}, {514290, \"Factory Engineer\"}, {514310, \"SENRAN KAGURA Bon Appétit! - Full Course\"}, {514580, \"Cooking Witch\"}, {514620, \"Ellipsis\"}, {514660, \"BitMaster\"}, {514900, \">observer_\"}, {514920, \"Crash Wheels\"}, {515020, \"The VR Museum of Fine Art\"}, {515040, \"Make America Great Again: The Trump Presidency\"}, {515180, \"Bus Simulator 18\"}, {515260, \"Virtual Rides 3 - Funfair Simulator\"}, {515470, \"Hyper color ball\"}, {515570, \"UBERMOSH Vol.3\"}, {515650, \"Straimium Immortaly\"}, {515690, \"Warriors of Vilvatikta\"}, {515910, \"Hooligan Vasja\"}, {516110, \"ToeJam & Earl: Back in the Groove!\"}, {516130, \"Runner3\"}, {516510, \"Orake Classic\"}, {516750, \"My Summer Car\"}, {517000, \"Sakura Shrine Girls\"}, {517130, \"Soundboxing\"}, {517160, \"Richie's Plank Experience\"}, {517710, \"Redout: Enhanced Edition\"}, {517720, \"Epic Tavern\"}, {517790, \"Caesar 3\"}, {517810, \"Caesar IV\"}, {517910, \"Sisyphus Reborn\"}, {518030, \"Aim Hero\"}, {518060, \"Chess Ultra\"}, {518120, \"Chimpact 1 - Chuck's Adventure\"}, {518150, \"Intruder\"}, {518580, \"Accounting (Legacy)\"}, {518620, \"Ballistick\"}, {518670, \"Intensive Exposure\"}, {518730, \"Zombo Buster Rising\"}, {518790, \"theHunter: Call of the Wild\"}, {518920, \"Surgeon Simulator: Experience Reality\"}, {519140, \"Minds Eyes\"}, {519190, \"Next Day: Survival\"}, {519860, \"DUSK\"}, {520010, \"Climbey\"}, {520440, \"GUILTY GEAR Xrd REV 2\"}, {520600, \"Purrfect Date - Visual Novel/Dating Simulator\"}, {520720, \"Dear Esther: Landmark Edition\"}, {520850, \"Lost in Secular Love\"}, {520860, \"Impulse of War\"}, {520940, \"MX vs ATV All Out\"}, {521150, \"Another Brick in The Mall\"}, {521200, \"Epic Battle Fantasy 3\"}, {521230, \"Stone Age Wars\"}, {521350, \"Use Your Words\"}, {521500, \"Sakura Space\"}, {521570, \"You Have 10 Seconds 2\"}, {521630, \"Toadled Classic\"}, {521890, \"Hello Neighbor\"}, {521920, \"Death's Hangover\"}, {521950, \"Bullet Sorrow VR\"}, {522040, \"Princess Remedy 2: In A Heap of Trouble\"}, {522090, \"Medieval Defenders\"}, {522210, \"Serial Cleaner\"}, {522470, \"The House of Da Vinci\"}, {522570, \"The Last Hope\"}, {523000, \"Princess Maker 2 Refine\"}, {523160, \"Alice's Patchworks 2\"}, {523210, \"A Normal Lost Phone\"}, {523640, \"The Works of Mercy\"}, {523650, \"Lust for Darkness\"}, {523660, \"HYPERCHARGE: Unboxed\"}, {523780, \"Emily is Away Too\"}, {524220, \"NieR:Automata\"}, {524380, \"Yore VR\"}, {524580, \"Fairy Fencer F Advent Dark Force\"}, {524640, \"Asura: Vengeance Edition\"}, {524660, \"RutonyChat\"}, {524850, \"Alicemare\"}, {525040, \"The Disney Afternoon Collection\"}, {525240, \"LOST SPHEAR\"}, {525360, \"Shio\"}, {525380, \"Demon Peak\"}, {525480, \".hack//G.U. Last Recode\"}, {525510, \"Guns, Gore and Cannoli 2\"}, {525620, \"Octogeddon\"}, {525680, \"Deisim\"}, {525700, \"Birthdays the Beginning\"}, {525780, \"Doorways: Old Prototype\"}, {525920, \"Pro Cycling Manager 2017\"}, {526160, \"The Wild Eight\"}, {526180, \"Deus Ex: Mankind Divided - VR Experience\"}, {526490, \"Higurashi When They Cry Hou - Ch.4 Himatsubushi\"}, {526540, \"8infinity\"}, {526740, \"hack_me\"}, {526880, \"Chess Knight 2\"}, {526920, \"SQUAKE\"}, {527100, \"Star Trek: Bridge Crew\"}, {527160, \"Cmoar VR Cinema\"}, {527190, \"WORLD END ECONOMiCA episode.03\"}, {527230, \"For The King\"}, {527270, \"Atelier Sophie: The Alchemist of the Mysterious Book\"}, {527280, \"Nights of Azure\"}, {527340, \"What The Box?\"}, {527430, \"Warhammer 40,000: Inquisitor - Martyr\"}, {527450, \"Cockroach Simulator\"}, {527710, \"Crown Champion: Legends of the Arena\"}, {527750, \"Merger 3D\"}, {527760, \"Just Hero\"}, {527770, \"Russian SuperHero Dead Ivan\"}, {528160, \"Solstice Chronicles: MIA\"}, {528230, \"SYNTHETIK: Legion Rising\"}, {528300, \"Soulless: Ray Of Hope\"}, {528460, \"Rogalia\"}, {528510, \"Turbo Pug 3D\"}, {528550, \"Drunkn Bar Fight\"}, {528610, \"Double Dragon IV\"}, {528660, \"Spin Rush\"}, {528720, \"Shu\"}, {528740, \"Operation: New Earth\"}, {528820, \"Eisenwald: Blood of November\"}, {529110, \"Awkward Dimensions Redux\"}, {529150, \"Lazerbait\"}, {529160, \"Moekuri: Adorable + Tactical SRPG\"}, {529180, \"Dark and Light\"}, {529240, \"Creature Clicker - Capture, Train, Ascend!\"}, {529440, \"Behold the Kickmen\"}, {529490, \"Rogue Trooper Redux\"}, {529520, \"Mutant Football League\"}, {529590, \"Please, Don't Touch Anything 3D\"}, {529660, \"Mages of Mystralia\"}, {529670, \"The Bellows\"}, {529760, \"TAIKU MANSION\"}, {529780, \"Disturbed\"}, {529910, \"ARK Park\"}, {529950, \"12 orbits\"}, {530020, \"World to the West\"}, {530040, \"reconquest\"}, {530070, \"Train Sim World 2020\"}, {530120, \"VR The Diner Duo\"}, {530320, \"Wandersong\"}, {530330, \"Blameless\"}, {530390, \"Slayaway Camp\"}, {530630, \"Empires Apart\"}, {530890, \"Haydee\"}, {530950, \"Tower 57\"}, {531180, \"AIRHEART - Tales of broken Wings\"}, {531190, \"HEBEREKE!: March! Red Army Girls' Brigade\"}, {531510, \"Just Shapes & Beats\"}, {531640, \"Eternal Card Game\"}, {531660, \"Exoplanet: First Contact\"}, {531680, \"8-Bit Invaders!\"}, {531730, \"Corona Blossom Vol.2 The Truth From Beyond\"}, {531930, \"Dungeon Rats\"}, {531960, \"Bloody Walls\"}, {532030, \"DMT: Dream Dealer Trip\"}, {532110, \"Rusty Lake: Roots\"}, {532190, \"Super Blood Hockey\"}, {532210, \"Life is Strange 2\"}, {532270, \"Lethal VR\"}, {532290, \"Dark Train\"}, {532770, \"Time Leap Paradise SUPER LIVE!\"}, {532840, \"CAYNE\"}, {533300, \"Zup!\"}, {533480, \"Academagia: The Making of Mages\"}, {533690, \"Think To Die\"}, {533780, \"Zombie Defense\"}, {533820, \"Atonement 2: Ruptured by Despair\"}, {533860, \"Multimirror\"}, {533950, \"Don't open the doors!\"}, {534290, \"Cursed Castilla (Maldita Castilla EX)\"}, {534370, \"Pure Farming 2018\"}, {534550, \"Guacamelee! 2\"}, {535480, \"Sundered: Eldritch Edition\"}, {535520, \"Nidhogg 2\"}, {535760, \"Unforgiving Trials: The Space Crusade\"}, {535930, \"Two Point Hospital\"}, {537110, \"Angels of Death\"}, {537430, \"Inner Chains\"}, {538070, \"Bad Dream: Coma\"}, {538100, \"Feel The Snow\"}, {540020, \"Final Quest II\"}, {540610, \"Delicious! Pretty Girls Mahjong Solitaire\"}, {541210, \"Cold Waters\"}, {541230, \"Alien Shooter TD\"}, {541300, \"Survive the Nights\"}, {541570, \"Sally Face - Episode One\"}, {542340, \"Slingshot people\"}, {544810, \"KARDS - The WWII Card Game\"}, {544920, \"Darwin Project\"}, {545580, \"GO AWAY, THERE'S KUMIS OVER THERE!\"}, {545820, \"Wanderland\"}, {546700, \"The Butterfly Sign\"}, {546930, \"Machine Hunt\"}, {547010, \"Terminal Hacker\"}, {547860, \"Rend\"}, {547910, \"The Survey\"}, {548430, \"Deep Rock Galactic\"}, {550650, \"Black Squad\"}, {551110, \"Wayout\"}, {551550, \"ASSASSINATION BOX\"}, {552100, \"Brick Rigs\"}, {552110, \"Puzzle Pirates: Dark Seas\"}, {552280, \"Tayutama 2-you're the only one-\"}, {552500, \"Warhammer: Vermintide 2\"}, {552520, \"Far Cry 5\"}, {552700, \"WORLD OF FINAL FANTASY\"}, {552990, \"World of Warships\"}, {553210, \"Warhammer 40,000: Space Wolf\"}, {553640, \"ICEY\"}, {554620, \"Life is Strange: Before the Storm\"}, {555150, \"The First Tree\"}, {555160, \"Pavlov\"}, {555220, \"Detention\"}, {555450, \"Deus Ex: Breach\"}, {555510, \"MachiaVillain\"}, {555570, \"Infestation: The New Z\"}, {556180, \"Mysterium: A Psychic Clue Game\"}, {556870, \"Charlie's Adventure\"}, {557580, \"Ancient Guardian\"}, {557600, \"Gorogoa\"}, {557630, \"Hello Charlotte EP2: Requiem Aeternam Deo\"}, {557680, \"Germ Wars\"}, {557890, \"Sunset's Ashes\"}, {558260, \"Gravel\"}, {558660, \"it's always monday\"}, {559610, \"Love Ribbon\"}, {559650, \"Witch It\"}, {560130, \"Pillars of Eternity II: Deadfire\"}, {560170, \"STAR WARS SHADOWS OF THE EMPIRE\"}, {561340, \"Merlin adventurer store\"}, {562010, \"Tanki Online\"}, {562430, \"Alien Hostage\"}, {562470, \"Empire of Angels IV\"}, {564050, \"Bud Spencer & Terence Hill - Slaps And Beans\"}, {564230, \"Fire Pro Wrestling World\"}, {565030, \"Blueshift\"}, {565120, \"The Station\"}, {566050, \"Zeus + Poseidon\"}, {566530, \"Mass Exodus Redux\"}, {566860, \"VR Dungeon Knight\"}, {567290, \"Slash It\"}, {567580, \"Duke of Alpha Centauri\"}, {567640, \"Danganronpa V3: Killing Harmony\"}, {568220, \"Lobotomy Corporation | Monster Management Simulation\"}, {569480, \"Kingdoms and Castles\"}, {569800, \"LEAVES - The Journey\"}, {570940, \"DARK SOULS: REMASTERED\"}, {571260, \"THE KING OF FIGHTERS XIV STEAM EDITION\"}, {571740, \"Golf It!\"}, {572520, \"Dropzone\"}, {573060, \"LOGistICAL\"}, {573090, \"Stormworks: Build and Rescue\"}, {573170, \"Fidel Dungeon Rescue\"}, {573490, \"Interstellar Transport Company\"}, {574310, \"The Mooseman\"}, {574760, \"Starship Theory\"}, {574980, \"Them's Fightin' Herds\"}, {575490, \"Let's Draw\"}, {575550, \"Hell Girls\"}, {575950, \"Blood Feed\"}, {576310, \"Oracle\"}, {576470, \"ANIMALITY\"}, {576770, \"Low Magic Age\"}, {576860, \"Summer Nightmare\"}, {577080, \"A Dump in the Dark\"}, {578080, \"PUBG: BATTLEGROUNDS\"}, {578310, \"BRAIN / OUT\"}, {579020, \"Constructor\"}, {579180, \"Ys VIII: Lacrimosa of DANA\"}, {579950, \"Marvel's Guardians of the Galaxy: The Telltale Series\"}, {580040, \"Formata\"}, {580720, \"Carrier Deck\"}, {581030, \"The Last Hope: Trump vs Mafia - North Korea\"}, {581200, \"Nash Racing\"}, {581270, \"Old Man's Journey\"}, {581300, \"Black Mirror\"}, {581320, \"Insurgency: Sandstorm\"}, {582010, \"Monster Hunter: World\"}, {582160, \"Assassin's Creed Origins\"}, {582500, \"We Were Here\"}, {582660, \"Black Desert\"}, {582890, \"Estranged: The Departure\"}, {583950, \"Artifact\"}, {584400, \"Sonic Mania\"}, {585410, \"GameMaker Studio 2 Desktop\"}, {585420, \"Trailmakers\"}, {585450, \"Shadows: Awakening\"}, {585550, \"FEMINAZI: The Triggering\"}, {585840, \"Leaving Lyndow\"}, {585860, \"Bunker 58\"}, {586030, \"Shardbound\"}, {586350, \"UBERMOSH:WRAITH\"}, {586750, \"Sonny\"}, {586970, \"Hungry Flame\"}, {587450, \"Saurian\"}, {588160, \"Pizza Connection 3\"}, {588190, \"Tower!3D Pro\"}, {588240, \"Frisky Business\"}, {588650, \"Dead Cells\"}, {589290, \"Holdfast: Nations At War\"}, {589420, \"Grass Cutter - Mutated Lawns\"}, {589780, \"The Red Strings Club\"}, {590380, \"Into the Breach\"}, {591420, \"Zup! 4\"}, {591790, \"BREACH IT\"}, {591960, \"Animation Throwdown: The Quest for Cards\"}, {594570, \"Total War: WARHAMMER II\"}, {594650, \"Hunt: Showdown 1896\"}, {595320, \"Polterheist\"}, {596970, \"Sunless Skies: Sovereign Edition\"}, {597170, \"Clone Drone in the Danger Zone\"}, {597230, \"Shotgun Legend\"}, {597700, \"OVIVO\"}, {597840, \"Live Wallpaper Master\"}, {598060, \"Slasher's Keep\"}, {598070, \"Nevrosa: Prelude\"}, {598700, \"The Vagrant\"}, {598960, \"Mashinky\"}, {599140, \"Graveyard Keeper\"}, {599460, \"Weapon Shop Fantasy\"}, {600090, \"The Coma: Recut\"}, {600480, \"Megaquarium\"}, {601050, \"Attack on Titan 2 - A.O.T.2\"}, {601150, \"Devil May Cry 5\"}, {601430, \"The Evil Within 2\"}, {601810, \"Spark the Electric Jester\"}, {602520, \"NEKOPARA Vol. 3\"}, {602770, \"Clatter\"}, {603850, \"Age of History II\"}, {603940, \"Pixel Shopkeeper\"}, {604450, \"Another Adventure\"}, {604490, \"Running Through Russia\"}, {605450, \"In Death\"}, {605740, \"Flashing Lights - Police, Firefighting, Emergency Services (EMS) Simulator\"}, {606150, \"Moonlighter\"}, {606230, \"Thea 2: The Shattering\"}, {606330, \"Shadows 2: Perfidia\"}, {606500, \"HellSign\"}, {606710, \"Sphinx and the Cursed Mummy\"}, {606730, \"Sine Mora EX\"}, {609320, \"FAR: Lone Sails\"}, {610180, \"The Jackbox Party Pack 4\"}, {610360, \"Zup! Zero\"}, {610380, \"Ratty Catty\"}, {610670, \"Alchemyland\"}, {611040, \"Tube Tycoon\"}, {611760, \"Don't Escape: 4 Days to Survive\"}, {611790, \"House Party\"}, {612170, \"One Eyed Kutkh\"}, {612300, \"Sudden Strike Gold\"}, {612470, \"Bio Inc. Redemption\"}, {612720, \"SAELIG\"}, {612880, \"Wolfenstein II: The New Colossus\"}, {612930, \"Fight of Gods\"}, {613100, \"House Flipper\"}, {613730, \"Need For Drink\"}, {614630, \"Tiny Rails\"}, {614910, \"#(0023)monstercakes\"}, {615120, \"COMPOUND\"}, {615610, \"Orbt XL\"}, {616250, \"Crystalline\"}, {616720, \"Live2DViewerEX\"}, {617480, \"Tower of Time\"}, {617670, \"Zup! S\"}, {619500, \"cyubeVR\"}, {619780, \"The Swords of Ditto: Mormo's Curse\"}, {619880, \"ATOMEGA\"}, {620190, \"Gunsmith\"}, {620220, \"Catmaze\"}, {620980, \"Beat Saber\"}, {621060, \"PC Building Simulator\"}, {621220, \"Nantucket\"}, {622460, \"Steampunk Tower 2\"}, {622650, \"Bendy and the Ink Machine\"}, {622720, \"Weedcraft Inc\"}, {623940, \"HIVESWAP: ACT 1\"}, {624970, \"Battlezone: Combat Commander\"}, {625430, \"Doodle God Blitz\"}, {626610, \"TT Isle of Man: Ride on the Edge\"}, {626690, \"Sword Art Online: Fatal Bullet\"}, {627270, \"Injustice 2\"}, {627690, \"Idle Champions of the Forgotten Realms\"}, {629220, \"Rise of Insanity\"}, {629730, \"Blade and Sorcery\"}, {631510, \"Devil May Cry HD Collection\"}, {632000, \"CrossCells\"}, {632360, \"Risk of Rain 2\"}, {633110, \"FAST BEAT LOOP RACER GT | 環狀賽車GT\"}, {633230, \"NARUTO TO BORUTO: SHINOBI STRIKER\"}, {633360, \"Remothered: Tormented Fathers\"}, {635260, \"CarX Drift Racing Online\"}, {635730, \"Dragonia\"}, {636480, \"Ravenfield\"}, {637090, \"BATTLETECH\"}, {637650, \"FINAL FANTASY XV WINDOWS EDITION\"}, {637670, \"Secret of Mana\"}, {638160, \"Moero Chronicle\"}, {638650, \"Sword Art Online Re: Hollow Fragment\"}, {639780, \"Deep Space Waifu: FLAT JUSTICE\"}, {640820, \"Pathfinder: Kingmaker — Enhanced Plus Edition\"}, {641990, \"The Escapists 2\"}, {644200, \"Starlight of Aeons\"}, {644390, \"D&D Lords of Waterdeep\"}, {644540, \"Dies irae ~Amantes amentes~\"}, {644930, \"They Are Billions\"}, {645630, \"Car Mechanic Simulator 2018\"}, {646270, \"60 Parsecs!\"}, {646570, \"Slay the Spire\"}, {646910, \"The Crew 2\"}, {648350, \"Jurassic World Evolution\"}, {648800, \"Raft\"}, {649190, \"Blast Zone! Tournament\"}, {650220, \"Interplanetary: Enhanced Edition\"}, {650760, \"侠客风云传前传(Tale of Wuxia:The Pre-Sequel)\"}, {653530, \"Return of the Obra Dinn\"}, {655100, \"Oik 3\"}, {656200, \"电竞俱乐部/ESports Club\"}, {657200, \"Hand Simulator\"}, {658260, \"BLUE REFLECTION\"}, {658550, \"Zup! Zero 2\"}, {658700, \"V-Rally 4\"}, {659190, \"Sorry, James\"}, {659540, \"Warsim: The Realm of Aslona\"}, {661790, \"Witch Hunt\"}, {664830, \"Zombotron\"}, {665300, \"Stream Avatars\"}, {666140, \"My Time at Portia\"}, {667970, \"VTOL VR\"}, {668210, \"Super Fancy Pants Adventure\"}, {668630, \"Tricolour Lovestory\"}, {671620, \"Beast Battle Simulator\"}, {673260, \"Starblast\"}, {673450, \"Time Lock VR 1\"}, {673880, \"Warhammer 40,000: Mechanicus\"}, {673950, \"Farm Together\"}, {674520, \"Fight'N Rage\"}, {674940, \"Stick Fight: The Game\"}, {675010, \"MudRunner\"}, {677480, \"Outpost Zero\"}, {678950, \"DRAGON BALL FighterZ\"}, {680320, \"The Heiress\"}, {681280, \"Descenders\"}, {683320, \"GRIS\"}, {684580, \"Shoppe Keep 2\"}, {686260, \"Forged Battalion\"}, {687260, \"Tokyo Dark\"}, {688420, \"Bad North: Jotunn Edition\"}, {688470, \"Han Xiongnu Wars\"}, {690790, \"DiRT Rally 2.0\"}, {690830, \"Foundation\"}, {691280, \"SINNER: Sacrifice for Redemption\"}, {695290, \"The Golf Club 2019 featuring PGA TOUR\"}, {695600, \"This Grand Life\"}, {696370, \"BROKE PROTOCOL\"}, {698540, \"Dungeon Warfare 2\"}, {698640, \"Deep Sky Derelicts\"}, {698780, \"Doki Doki Literature Club!\"}, {698870, \"Metaverse Keeper / 元能失控\"}, {699670, \"Feudal Alloy\"}, {702890, \"BlazBlue: Cross Tag Battle\"}, {703320, \"Hidden & Dangerous 2: Courage Under Fire\"}, {704270, \"Generation Zero\"}, {704850, \"Thief Simulator\"}, {705120, \"Death Coming/死神来了\"}, {707010, \"Will To Live Online\"}, {707680, \"Slapshot\"}, {711660, \"CHUCHEL\"}, {712050, \"Otaku's Fantasy\"}, {712730, \"SIMULACRA\"}, {712840, \"King Exit\"}, {715050, \"The Islander\"}, {715560, \"Eastshade\"}, {716490, \"EXAPUNKS\"}, {717640, \"Reigns: Her Majesty\"}, {718560, \"Scythe: Digital Edition\"}, {718590, \"Dark Devotion\"}, {719750, \"PUSS!\"}, {719890, \"Beasts of Bermuda\"}, {721090, \"SKYBOX VR Video Player\"}, {722180, \"SURV1V3\"}, {722230, \"L.A. Noire: The VR Case Files\"}, {722670, \"Chinese Chess\"}, {722730, \"Cogmind\"}, {725480, \"Slap City\"}, {726840, \"City Game Studio: a tycoon about game dev\"}, {726990, \"Succubus Rem\"}, {728880, \"Overcooked! 2\"}, {729040, \"Borderlands Game of the Year Enhanced\"}, {731490, \"Crash Bandicoot N. Sane Trilogy\"}, {732430, \"Superflight\"}, {732810, \"Slipstream\"}, {733790, \"Not Tonight\"}, {735280, \"EMERGENCY 20\"}, {735570, \"Project Rhombus\"}, {736190, \"Chinese Parents\"}, {736220, \"Squad 44\"}, {736260, \"Baba Is You\"}, {738060, \"Freddy Fazbear's Pizzeria Simulator\"}, {738520, \"Breathedge\"}, {738530, \"New Gundam Breaker\"}, {738540, \"Tales of Vesperia: Definitive Edition\"}, {740200, \"The Mercury Man\"}, {741260, \"Mobile Empire\"}, {741670, \"Easy Red\"}, {743390, \"DISTRAINT 2\"}, {743450, \"Monster Prom\"}, {744260, \"Legend of Homebody\"}, {747340, \"Unforgiving - A Northern Hymn\"}, {747360, \"Gray Dawn\"}, {748360, \"MY HERO ONE'S JUSTICE\"}, {748490, \"The Legend of Heroes: Trails of Cold Steel II\"}, {750920, \"Shadow of the Tomb Raider: Definitive Edition\"}, {751780, \"Forager\"}, {754150, \"Rolling Line\"}, {758330, \"Shenmue I & II\"}, {758370, \"Through the Ages\"}, {758870, \"Kynseed\"}, {759740, \"RIDE 3\"}, {760060, \"Mutant Year Zero: Road to Eden\"}, {760890, \"Hello Charlotte EP3: Childhood's End\"}, {761030, \"EARTHLOCK\"}, {761890, \"Albion Online\"}, {762650, \"Depraved\"}, {764790, \"The Messenger\"}, {764920, \"Fear the Night - 恐惧之夜\"}, {766370, \"Dying Light: Bad Blood\"}, {767390, \"Dakar 18\"}, {768750, \"MonteCrypto: The Bitcoin Enigma\"}, {769920, \"Odysseus Kosmos and his Robot Quest: Episode 1\"}, {769970, \"Bad Dream: Fever\"}, {770100, \"One Deck Dungeon\"}, {770240, \"PRO EVOLUTION SOCCER 2019\"}, {774461, \"The Jackbox Party Pack 5\"}, {774811, \"YUMENIKKI -DREAM DIARY-\"}, {774861, \"Project Winter\"}, {776490, \"永远消失的幻想乡 ～ The Disappearing of Gensokyo\"}, {777240, \"Tren0\"}, {777880, \"Fluffy Horde\"}, {780210, \"Freeways\"}, {782140, \"Re-Legion\"}, {784150, \"Workers & Resources: Soviet Republic\"}, {785780, \"OF MICE AND SAND -REVISED-\"}, {785890, \"Hexologic\"}, {786520, \"SAO Utils: Beta\"}, {787480, \"Phoenix Wright: Ace Attorney Trilogy\"}, {787740, \"Construction Simulator 2 US - Pocket Edition\"}, {787860, \"Farming Simulator 19\"}, {788270, \"Exiled Kingdoms\"}, {789760, \"DEAD OR SCHOOL\"}, {790850, \"Undead Horde\"}, {791330, \"Fallen ~Makina and the City of Ruins~\"}, {792710, \"Levelhead\"}, {793350, \"Swarmlake\"}, {793690, \"Final Assault\"}, {794260, \"Outward Definitive Edition\"}, {794800, \"Clue/Cluedo: Classic Edition\"}, {796860, \"Police Enforcement VR : 1-King-27\"}, {798290, \"MXGP PRO\"}, {798810, \"Natural Locomotion\"}, {801630, \"UNDER NIGHT IN-BIRTH Exe:Late[cl-r]\"}, {805550, \"Assetto Corsa Competizione\"}, {809020, \"ZeroRanger\"}, {812140, \"Assassin's Creed Odyssey\"}, {812550, \"The King's Bird\"}, {813630, \"Supraland\"}, {814380, \"Sekiro: Shadows Die Twice - GOTY Edition\"}, {814540, \"Changed\"}, {815370, \"Green Hell\"}, {817130, \"WWE 2K19\"}, {817510, \"Golfing Over It with Alva Majo\"}, {818320, \"LEGO The Incredibles\"}, {819500, \"Fear The Wolves\"}, {823130, \"Totally Accurate Battlegrounds\"}, {824070, \"Objects in Space\"}, {824270, \"KovaaK's\"}, {826600, \"I am not a Monster: First Contact\"}, {828070, \"Treasure Hunter Claire\"}, {828900, \"The Stillness of the Wind\"}, {830820, \"Jets'n'Guns 2\"}, {834060, \"Goblin Walker\"}, {834740, \"Circle Empires\"}, {834910, \"ATLAS\"}, {836480, \"恋爱模拟器 Love Simulation\"}, {838310, \"Bloodstained: Curse of the Moon\"}, {838350, \"The Scroll of Taiwu : Beyond The Dome\"}, {840720, \"Sword Art Online: Lost Song\"}, {842910, \"The MISSING: J.J. Macfield and the Island of Memories\"}, {843380, \"Super Animal Royale\"}, {844590, \"Hypnospace Outlaw\"}, {845880, \"Touhou: Scarlet Curiosity\"}, {847370, \"Sunset Overdrive\"}, {848450, \"Subnautica: Below Zero\"}, {850000, \"Noel the Mortal Fate Complete Edition\"}, {851100, \"Touhou Luna Nights\"}, {852110, \"RetroMaze\"}, {853500, \"Quarantine Circular\"}, {855640, \"My Brother Rabbit\"}, {855860, \"Superfighters Deluxe\"}, {858210, \"Nova Drift\"}, {858810, \"Dawn of Man\"}, {860950, \"Mark of the Ninja: Remastered\"}, {862480, \"The Spiral Scouts\"}, {862690, \"Kid,napper: Gosh, I'm Kidnapped by a Pupil\"}, {863570, \"Super Seducer 2 - Advanced Seduction Tactics\"}, {863590, \"Starcom: Nexus\"}, {866540, \"VR Flush\"}, {870200, \"Juno: New Origins\"}, {871420, \"Lovecraft's Untold Stories\"}, {871720, \"Ultimate Custom Night\"}, {872820, \"Football Manager 2019 Touch\"}, {877360, \"18+\"}, {880940, \"Pummel Party\"}, {881320, \"The LEGO Movie 2 Videogame\"}, {881690, \"The Slater\"}, {882140, \"Reentry - A Space Flight Simulator\"}, {882790, \"Fate Seeker\"}, {882960, \"Visitor 来访者\"}, {883710, \"Resident Evil 2\"}, {884660, \"CRSED: F.O.A.D.\"}, {885810, \"The Witch's House MV\"}, {886960, \"Dragon Spear\"}, {887530, \"President Yukino\"}, {889510, \"SENRAN KAGURA Burst Re:Newal\"}, {896160, \"Evil Bank Manager\"}, {897030, \"Paratopic\"}, {897820, \"Reigns: Game of Thrones\"}, {899970, \"NEKOPARA Extra\"}, {906390, \"Return.\"}, {907270, \"eSports Legend\"}, {907470, \"Iris.Fall\"}, {909080, \"Cube Escape: Paradox\"}, {914620, \"Mist Survival\"}, {914700, \"MINImax Tinyverse\"}, {920680, \"Fate Hunters\"}, {921780, \"The Dark Occult\"}, {927270, \"Accounting+\"}, {932850, \"Simmiland\"}, {935270, \"Great Hero's Beard\"}, {938220, \"TAPSONIC BOLD\"}, {939400, \"LoveChoice\"}, {939960, \"Far Cry New Dawn\"}, {939990, \"Boxing School\"}, {942970, \"Unheard - Voices of Crime\"}, {943380, \"Timberman VS\"}, {949290, \"Winkeltje: The Little Shop\"}, {950530, \"Mojo 2: Mia\"}, {952250, \"SEPTEMBER 1999\"}, {953580, \"Tourist Bus Simulator\"}, {954870, \"Astrox Imperium\"}, {955900, \"Amazing Cultivation Simulator\"}, {957790, \"War Dust VR: 32v32 Battlefields\"}, {959520, \"Fantasy Blacksmith\"}, {960090, \"Bloons TD 6\"}, {962400, \"Granny\"}, {962730, \"Skater XL - The Ultimate Skateboarding Game\"}, {963450, \"The Eternal Castle [REMASTERED]\"}, {963710, \"Lost in Vivo\"}, {964350, \"At Home Alone\"}, {967050, \"Pacify\"}, {973760, \"Thronebreaker: The Witcher Tales\"}, {976010, \"I hate this game\"}, {977950, \"A Dance of Fire and Ice\"}, {980850, \"Pixel Battle Royale\"}, {991780, \"Notes of Soul\"}, {992300, \"嗜血印 Bloody Spell\"}, {994280, \"Gujian3(古剑奇谭三)\"}, {998930, \"Seek Girl\"}, {1002560, \"Tiny Snow\"}, {1007350, \"Mirror Maker\"}, {1008710, \"Wet Girl\"}, {1013870, \"Leanna's Slice of Life\"}, {1021670, \"机退怪兽\"}, {1025250, \"Shadow Corridor\"}, {1046030, \"ISLANDERS\"}, {1051310, \"Paper Dolls: Original / 纸人\"}}),",
+                "    Joined = Table.NestedJoin(Games, {\"app_id\"}, Names, {\"app_id\"}, \"Names\", JoinKind.LeftOuter),",
+                "    Expanded = Table.ExpandTableColumn(Joined, \"Names\", {\"game_name\"}),",
+                "    Labels = Table.AddColumn(Expanded, \"Game label\", each Text.From([app_id]) & \" — \" & (if [game_name] = null then \"Chưa có tên\" else [game_name]), type text)",
+                "in",
+                "    Labels"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Data Quality",
+        "columns": [
+          {
+            "name": "input_reviews",
+            "dataType": "int64",
+            "lineageTag": "2f267a7c-6291-4db6-91e2-91afc61d137d",
+            "sourceColumn": "input_reviews",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "valid_reviews",
+            "dataType": "int64",
+            "lineageTag": "634d8e81-256c-42db-937f-4f70a56f2b97",
+            "sourceColumn": "valid_reviews",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "rejected_reviews",
+            "dataType": "int64",
+            "lineageTag": "1c35c60a-15fb-4198-948e-94091ba580c9",
+            "sourceColumn": "rejected_reviews",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "invalid_app_id",
+            "dataType": "int64",
+            "lineageTag": "f895a9d1-4e67-47c5-8ffb-6c29c49f9a82",
+            "sourceColumn": "invalid_app_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "invalid_review_month",
+            "dataType": "int64",
+            "lineageTag": "1de1974b-dd7d-4219-98c2-2bff5d683b4c",
+            "sourceColumn": "invalid_review_month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "invalid_recommendation",
+            "dataType": "int64",
+            "lineageTag": "0b52aadf-6251-4521-ae22-28972643962c",
+            "sourceColumn": "invalid_recommendation",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unknown_playtime",
+            "dataType": "int64",
+            "lineageTag": "33051be5-dbe3-408a-808f-5959fece6326",
+            "sourceColumn": "unknown_playtime",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unknown_author_activity",
+            "dataType": "int64",
+            "lineageTag": "d5499990-fc75-4b67-bb24-1acfb92513f8",
+            "sourceColumn": "unknown_author_activity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "aggregate_reviews",
+            "dataType": "int64",
+            "lineageTag": "6431dbb9-7c8b-4d5b-9acc-14ddc12c4022",
+            "sourceColumn": "aggregate_reviews",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "processing_seconds",
+            "dataType": "double",
+            "lineageTag": "5ee318cd-cae9-49bc-b192-3a834331aa0b",
+            "sourceColumn": "processing_seconds",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "source",
+            "dataType": "string",
+            "lineageTag": "e31e52d7-178c-4a2d-a501-17c3f10923e6",
+            "sourceColumn": "source",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "snapshot",
+            "dataType": "string",
+            "lineageTag": "97846381-e7c0-47dc-acd5-20de9f4d8ae4",
+            "sourceColumn": "snapshot",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "loaded_at_local",
+            "dataType": "dateTime",
+            "lineageTag": "e213d491-6def-4a41-8ddd-9d98a7c73b99",
+            "sourceColumn": "loaded_at_local",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "empty_review_text",
+            "dataType": "int64",
+            "lineageTag": "a9f8e488-b808-47a9-9bf8-e7ab64dcceff",
+            "sourceColumn": "empty_review_text",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "suspected_duplicate_key_excess",
+            "dataType": "int64",
+            "lineageTag": "1181bc12-edff-4c56-9840-9b1ebfd91da2",
+            "sourceColumn": "suspected_duplicate_key_excess",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "6c35a28d-fa0c-4d76-b00b-80585b773226",
+        "measures": [
+          {
+            "name": "Review đầu vào",
+            "expression": "MAX('Data Quality'[input_reviews])",
+            "formatString": "#,0",
+            "lineageTag": "2a7f9d78-6c81-41e3-9bf6-d26d865e624d"
+          },
+          {
+            "name": "Review hợp lệ",
+            "expression": "MAX('Data Quality'[valid_reviews])",
+            "formatString": "#,0",
+            "lineageTag": "56e2e269-7446-4901-85d1-8632e5bf87e4"
+          },
+          {
+            "name": "Review bị loại",
+            "expression": "MAX('Data Quality'[rejected_reviews])",
+            "formatString": "#,0",
+            "lineageTag": "3bfc9662-63e2-458e-b4cc-5c2686e5f9d9"
+          },
+          {
+            "name": "Mã game không hợp lệ",
+            "expression": "MAX('Data Quality'[invalid_app_id])",
+            "formatString": "#,0",
+            "lineageTag": "cefedf8b-51c3-4651-abe6-71a3e387ca9d"
+          },
+          {
+            "name": "Tháng không hợp lệ",
+            "expression": "MAX('Data Quality'[invalid_review_month])",
+            "formatString": "#,0",
+            "lineageTag": "2c214ae4-8246-4f72-860a-92f80fca7fa6"
+          },
+          {
+            "name": "Giá trị đề xuất không hợp lệ",
+            "expression": "MAX('Data Quality'[invalid_recommendation])",
+            "formatString": "#,0",
+            "lineageTag": "da0900a1-2ec9-48a1-85d2-58c9f63a36a5"
+          },
+          {
+            "name": "Thiếu thời gian chơi",
+            "expression": "MAX('Data Quality'[unknown_playtime])",
+            "formatString": "#,0",
+            "lineageTag": "64a8440e-8e1c-4c75-ad07-fdb63300a1fe"
+          },
+          {
+            "name": "Thiếu hoạt động tác giả",
+            "expression": "MAX('Data Quality'[unknown_author_activity])",
+            "formatString": "#,0",
+            "lineageTag": "36a97007-8db1-4111-89f5-fe82bc9559a5"
+          },
+          {
+            "name": "Review sau tổng hợp",
+            "expression": "MAX('Data Quality'[aggregate_reviews])",
+            "formatString": "#,0",
+            "lineageTag": "db88ca2f-d8f0-413c-8950-eead02cb2a0e"
+          },
+          {
+            "name": "Thời gian xử lý Spark (giây)",
+            "expression": "MAX('Data Quality'[processing_seconds])",
+            "formatString": "#,0.000",
+            "lineageTag": "97a0b62c-0ad0-476b-94dc-2b20014afca7"
+          },
+          {
+            "name": "Cập nhật (giờ Việt Nam)",
+            "expression": "MAX('Data Quality'[loaded_at_local])",
+            "formatString": "dd/MM/yyyy HH:mm:ss",
+            "lineageTag": "f47d8c63-3353-4a29-bd5f-df75422436fe"
+          },
+          {
+            "name": "Nội dung rỗng",
+            "expression": "MAX('Data Quality'[empty_review_text])",
+            "formatString": "#,0",
+            "lineageTag": "5f3c62b4-c9d5-48ea-a806-2dccce0c2ded"
+          },
+          {
+            "name": "Dòng dư theo khóa nghi trùng",
+            "expression": "MAX('Data Quality'[suspected_duplicate_key_excess])",
+            "formatString": "#,0",
+            "lineageTag": "7476b5c4-7633-4330-9713-015418027f59"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Data Quality",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Data = PostgreSQL.Database(\"localhost:5433\", \"steam_reviews\", [Query=\"SELECT (metrics->>'empty_review_text')::bigint AS empty_review_text, (metrics->>'suspected_duplicate_key_excess')::bigint AS suspected_duplicate_key_excess, source, snapshot, loaded_at AT TIME ZONE 'Asia/Ho_Chi_Minh' AS loaded_at_local, (metrics->>'input_reviews')::bigint AS input_reviews, (metrics->>'valid_reviews')::bigint AS valid_reviews, (metrics->>'rejected_reviews')::bigint AS rejected_reviews, (metrics->>'invalid_app_id')::bigint AS invalid_app_id, (metrics->>'invalid_review_month')::bigint AS invalid_review_month, (metrics->>'invalid_recommendation')::bigint AS invalid_recommendation, (metrics->>'unknown_playtime')::bigint AS unknown_playtime, (metrics->>'unknown_author_activity')::bigint AS unknown_author_activity, (metrics->>'aggregate_reviews')::bigint AS aggregate_reviews, (metrics->>'processing_seconds')::double precision AS processing_seconds FROM monitoring.pipeline_quality WHERE source = 'raw' ORDER BY loaded_at DESC LIMIT 1\"])",
+                "in",
+                "    Data"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Hành vi chi tiết",
+        "columns": [
+          {
+            "name": "app_id",
+            "dataType": "int64",
+            "lineageTag": "426e7802-ce9c-45f2-a152-b37afb4bbe9f",
+            "sourceColumn": "app_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "recommended",
+            "dataType": "boolean",
+            "lineageTag": "ad84e650-dcc8-4edf-ae65-f1b29b588511",
+            "sourceColumn": "recommended",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "reviews",
+            "dataType": "int64",
+            "lineageTag": "0bd53ecf-f406-413d-830b-7917ec2252a8",
+            "sourceColumn": "reviews",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "known_playtime",
+            "dataType": "int64",
+            "lineageTag": "6e6567fd-3fb3-4345-ac43-51af0edd9894",
+            "sourceColumn": "known_playtime",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "avg_playtime_hours",
+            "dataType": "double",
+            "lineageTag": "76eea151-bfe2-453b-9117-b386401b1afc",
+            "sourceColumn": "avg_playtime_hours",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "median_playtime_hours",
+            "dataType": "double",
+            "lineageTag": "31760616-8c88-4f63-8b75-935d9505d9df",
+            "sourceColumn": "median_playtime_hours",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "p90_playtime_hours",
+            "dataType": "double",
+            "lineageTag": "ebc018a3-82dd-41fa-9ccc-e125ecde7ba1",
+            "sourceColumn": "p90_playtime_hours",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "cb9370d6-42dc-4c58-8f47-53a2a3488ed1",
+        "partitions": [
+          {
+            "name": "Hành vi chi tiết",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5433\", \"steam_reviews\"),",
+                "    Data = Source{[Schema=\"analytics\", Item=\"player_behavior\"]}[Data]",
+                "in",
+                "    Data"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Chủ đề từ khóa",
+        "columns": [
+          {
+            "name": "app_id",
+            "dataType": "int64",
+            "lineageTag": "36f367b3-b6b2-4492-b11b-0dbb8b159566",
+            "sourceColumn": "app_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "topic",
+            "dataType": "string",
+            "lineageTag": "f6f4b344-be4d-465b-a194-24f2ecfbaa54",
+            "sourceColumn": "topic",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "mentions",
+            "dataType": "int64",
+            "lineageTag": "a05784f8-4116-4e96-b9f5-3f3f588abe84",
+            "sourceColumn": "mentions",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "positive_mentions",
+            "dataType": "int64",
+            "lineageTag": "f5130892-de1a-4a8e-8c9d-b5295ed8989f",
+            "sourceColumn": "positive_mentions",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "negative_mentions",
+            "dataType": "int64",
+            "lineageTag": "87e12e80-a497-407f-99fd-dc09c612dd6f",
+            "sourceColumn": "negative_mentions",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "0edcd665-deed-43ba-9da4-a57886a51f05",
+        "measures": [
+          {
+            "name": "Lượt nhắc",
+            "expression": "SUM('Chủ đề từ khóa'[mentions])",
+            "formatString": "#,0",
+            "lineageTag": "9cf97497-6e3b-4810-a2a7-f8628a90a89e"
+          },
+          {
+            "name": "Lượt nhắc trong review không đề xuất",
+            "expression": "SUM('Chủ đề từ khóa'[negative_mentions])",
+            "formatString": "#,0",
+            "lineageTag": "cab45878-a17e-4eee-b1ed-409c8adc55ad"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Chủ đề từ khóa",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5433\", \"steam_reviews\"),",
+                "    Data = Source{[Schema=\"analytics\", Item=\"review_topics\"]}[Data]",
+                "in",
+                "    Data"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Biến động đánh giá",
+        "columns": [
+          {
+            "name": "app_id",
+            "dataType": "int64",
+            "lineageTag": "31ef2dea-03d5-4f82-9ffd-0d515ea7ff5b",
+            "sourceColumn": "app_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "review_month",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM",
+            "lineageTag": "e107f494-4407-4eff-ac4a-4203b1db3f49",
+            "sourceColumn": "review_month",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Phân cấp ngày tháng",
+                  "table": "LocalDateTable_c7725f2b-d29c-4f98-8fbf-036116857f9f"
+                },
+                "isDefault": true,
+                "relationship": "45c3e94a-029d-4881-b752-dc4374291277"
+              }
+            ]
+          },
+          {
+            "name": "reviews",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "lineageTag": "db9f9098-5b4c-418a-b3da-1e1df5a48473",
+            "sourceColumn": "reviews",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "negative_rate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.0%",
+            "lineageTag": "b5c20b6e-d5fc-498d-912b-b98b551224bb",
+            "sourceColumn": "negative_rate",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "previous_negative_rate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.0%",
+            "lineageTag": "3c2b2ab2-edaa-4d29-b963-004733f503e3",
+            "sourceColumn": "previous_negative_rate",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "negative_rate_change",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.0%",
+            "lineageTag": "22d07709-053e-4db7-9119-615aef2bee02",
+            "sourceColumn": "negative_rate_change",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "recommendations",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e9786652-a46e-4edc-937b-03ab11ec981d",
+            "sourceColumn": "recommendations",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "previous_avg_reviews",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "af811beb-8c96-4513-ab11-4f47df9ac002",
+            "sourceColumn": "previous_avg_reviews",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "previous_months",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "dccdc547-ec55-4225-8fc5-a984ab04e78a",
+            "sourceColumn": "previous_months",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "69839d65-4ccd-4570-9b2f-0e5372668d7e",
+        "partitions": [
+          {
+            "name": "review_anomalies",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = PostgreSQL.Database(\"localhost:5433\", \"steam_reviews\"),",
+                "    Data = Source{[Schema=\"analytics\", Item=\"review_anomalies\"]}[Data]",
+                "in",
+                "    Data"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_c7725f2b-d29c-4f98-8fbf-036116857f9f",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "c2cb04ca-4c75-462e-b2c3-d44d7b5ef4a4",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Năm",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "68241772-6e45-491e-827a-d8d01a164c31",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "ac73efb7-86a8-40ed-9d67-9df929123a89",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Tháng",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "0e5ec75f-9415-4873-a648-636b8e1d2656",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "38e377e0-8763-4a38-b216-2e3a36d35865",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quý",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Quý \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "9ace6f1d-bb13-4d86-9149-53b4f5be8ba4",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Ngày",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "a5c10381-5a3b-451a-8ab4-5dd956fe9223",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Phân cấp ngày tháng",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Năm",
+                "column": "Năm",
+                "lineageTag": "86b75a83-79f5-4b3a-8b68-7bcb8e16b7f5",
+                "ordinal": 0
+              },
+              {
+                "name": "Quý",
+                "column": "Quý",
+                "lineageTag": "a6e5f269-3fe5-4703-92e5-b617137257c5",
+                "ordinal": 1
+              },
+              {
+                "name": "Tháng",
+                "column": "Tháng",
+                "lineageTag": "8e8d809a-1520-4570-98c9-191de97c6e57",
+                "ordinal": 2
+              },
+              {
+                "name": "Ngày",
+                "column": "Ngày",
+                "lineageTag": "50369ee7-9883-436d-8689-8cf90faa1147",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "f0ba5bcd-6ddd-4f05-9756-c43b27a22720"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "705247b5-c15b-449b-8018-4a346116cc94",
+        "partitions": [
+          {
+            "name": "LocalDateTable_c7725f2b-d29c-4f98-8fbf-036116857f9f",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('Biến động đánh giá'[review_month])), 1, 1), Date(Year(MAX('Biến động đánh giá'[review_month])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      }
+    ]
+  }
+}
